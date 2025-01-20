@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ashsolitude.github.io/img/10.png">
 <meta property="article:published_time" content="2024-12-29T13:00:00.000Z">
-<meta property="article:modified_time" content="2025-01-02T09:20:57.892Z">
+<meta property="article:modified_time" content="2025-01-20T10:40:50.202Z">
 <meta property="article:author" content="ashsolitude">
 <meta property="article:tag" content="SICP">
 <meta name="twitter:card" content="summary_large_image">
@@ -328,6 +328,7 @@ f(x,y)=xa^2+y*b+ab
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scheme">(<span class="hljs-name"><span class="hljs-built_in">+</span></span> (<span class="hljs-name"><span class="hljs-built_in">let</span></span> ((<span class="hljs-name">x</span> <span class="hljs-number">3</span>))<br>        (<span class="hljs-name"><span class="hljs-built_in">+</span></span> x (<span class="hljs-name"><span class="hljs-built_in">*</span></span> x <span class="hljs-number">10</span>)))<br>    x)<br>(<span class="hljs-name"><span class="hljs-built_in">let</span></span> ((<span class="hljs-name">x</span> <span class="hljs-number">3</span>)<br>    (<span class="hljs-name">y</span> (<span class="hljs-name"><span class="hljs-built_in">+</span></span> x <span class="hljs-number">2</span>)))<br>    (<span class="hljs-name"><span class="hljs-built_in">*</span></span> x y))<br><span class="hljs-comment">;如果x的值为2，输出分别为35和12</span><br></code></pre></td></tr></table></figure>
 <p>第一个程序中 <code>let</code> 里面的 <code>x</code> 被设置为3，而 <code>let</code> 外面的依然是2,这是因为 <code>let</code> 允许将变量绑定到尽可能局部的使用它们的地方<br>
 第二个程序中， <code>x</code> 被设置为3,但 <code>y</code> 被设置为4,这是因为当为局部变量提供值的表达式依赖于与局部变量本身具有相同名称的变量时，变量的值在 <code>let</code> 之外计算</p>
+<h1>是</h1>
 
                 
               </div>
