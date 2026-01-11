@@ -19,16 +19,16 @@
   <meta name="author" content="w42s2tflx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题集链接：CSES - CSES Problem Set - Tasks 只记录我觉得比较好的题，包括解题思路和核心代码">
+    <meta name="description" content="题集链接：CSES - CSES Problem Set - Tasks 只记录我觉得比较好的题，包括题目大意，解题思路和核心代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSES Problem Set">
 <meta property="og:url" content="https://w42s2tflx.github.io/2025/01/01/002/index.html">
 <meta property="og:site_name" content="Solitude">
-<meta property="og:description" content="题集链接：CSES - CSES Problem Set - Tasks 只记录我觉得比较好的题，包括解题思路和核心代码">
+<meta property="og:description" content="题集链接：CSES - CSES Problem Set - Tasks 只记录我觉得比较好的题，包括题目大意，解题思路和核心代码">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://w42s2tflx.github.io/img/23.png">
 <meta property="article:published_time" content="2025-01-01T13:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-26T11:28:31.000Z">
+<meta property="article:modified_time" content="2025-09-22T13:25:19.205Z">
 <meta property="article:author" content="w42s2tflx">
 <meta property="article:tag" content="CSES">
 <meta name="twitter:card" content="summary_large_image">
@@ -274,18 +274,19 @@
               <div class="markdown-body">
                 
                 <p>题集链接：<a target="_blank" rel="noopener" href="https://cses.fi/problemset/">CSES - CSES Problem Set - Tasks</a></p>
-<p>只记录我觉得比较好的题，包括解题思路和核心代码</p>
+<p>只记录我觉得比较好的题，包括题目大意，解题思路和核心代码</p>
 <span id="more"></span>
 <h1>Introductory Problems</h1>
 <h2 id="Grid-Paths">Grid Paths</h2>
-<p>一开始想到 <code>DFS</code> 暴力枚举，枚举每一条可能的路径，但是运行时间太长了，要进行剪枝，我是在 <a target="_blank" rel="noopener" href="https://usaco.guide/problems/cses-1625-grid-paths/solution">Solution - Grid Paths (CSES) · USACO Guide</a> 上找到相关题解的，这里给出了几个优化点</p>
+<p>题目大意：在一个 <code>7*7</code> 的方格中，从左上角走到左下角，共有 <code>88418</code> 条合法路径。每条路径可以用一个长度为 <code>48</code> 的字符串表示，字符仅包含  <strong>D（下）、U（上）、L（左）、R（右）</strong>。现在给定一个路径描述串，其中可能包含 <code>?</code>，表示可以是任意一个方向。问：有多少条合法路径与该描述匹配？</p>
+<p>解题思路：一开始想到 <code>DFS</code> 暴力枚举，枚举每一条可能的路径，但是运行时间太长了，要进行剪枝，我是在 <a target="_blank" rel="noopener" href="https://usaco.guide/problems/cses-1625-grid-paths/solution">Solution - Grid Paths (CSES) · USACO Guide</a> 上找到相关题解的，这里给出了几个优化点</p>
 <p>1.如果当前路径已经经过了左下角且当前步数不是最后一步，那么可以直接 <code>return</code></p>
-<p>2.如果路径无法继续前进，但可以向左或向右转动，则网格将分裂为两部分，两部分都包含未访问的方格。很明显，我们不能再访问所有方格，可以直接 <code>return</code></p>
+<p>2.如果路径无法继续前进，但可以向左和向右转动，则网格将分裂为两部分，两部分都包含未访问的方格。很明显，我们不能再访问所有方格，可以直接 <code>return</code></p>
 <p>用图来解释：假设我们目前在 <code>1</code> ， <code>0</code> 是还没有经过的位置，<code>#</code> 是已经经过或者不能走的位置</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-number">000</span>#<br>##<span class="hljs-number">1</span>#<br><span class="hljs-number">000</span>#<br></code></pre></td></tr></table></figure>
-<p>3.如果路径创建了一个不是左下角的死胡同，则路径将无法访问所有方格（路径可能在死胡同处停止或越过它，从而封闭一个方格）。因此，我们希望避免产生死胡同。例如，如果我们当前位置上方的方格三面被挡住（包括我们现在的位置），那么下一步必须往上，以避免造成死胡同。</p>
+<p>3.如果路径创建了一个不是终点的死胡同，则路径将无法访问所有方格（路径可能在死胡同处停止或越过它，从而封闭一个方格）。因此，我们希望避免产生死胡同。例如，如果我们当前位置上方的方格三面被挡住（包括我们现在的位置），那么下一步必须往上，以避免造成死胡同</p>
 <p>用图来解释：如果两个 <code>?</code> 中至少有一个是 <code>#</code>  ，加上我们当前的位置，如果不往上走就会形成死胡同，其他方向的也是同理</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>       <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span><br>?<span class="hljs-number">0</span>? -----&gt;#<span class="hljs-number">00</span>-----&gt;#<span class="hljs-number">10</span>-----&gt;##<span class="hljs-number">1</span><br><span class="hljs-number">010</span>      <span class="hljs-number">1</span>#<span class="hljs-number">1</span>       <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span><br>?<span class="hljs-number">0</span>?-----&gt;#<span class="hljs-number">00</span>-----&gt;#<span class="hljs-number">10</span>-----&gt;##<span class="hljs-number">1</span><br><span class="hljs-number">010</span>      <span class="hljs-number">1</span>#<span class="hljs-number">1</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
     <div class="fold">
       <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-e064c6af" role="button" aria-expanded="false" aria-controls="collapse-e064c6af">
@@ -298,15 +299,6 @@
       </div>
     </div>
 <h1>Sorting and Searching</h1>
-<h1>Dynamic Programming</h1>
-<h1>Graph Algorithms</h1>
-<h1>Range Queries</h1>
-<h1>Tree Algorithms</h1>
-<h1>Mathematics</h1>
-<h1>String Algorithms</h1>
-<h1>Geometry</h1>
-<h1>Advanced Techniques</h1>
-<h1>Additional Problems</h1>
 
                 
               </div>
@@ -358,8 +350,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/12/29/001/" title="SICP学习记录：第一章 构建过程抽象">
-                        <span class="hidden-mobile">SICP学习记录：第一章 构建过程抽象</span>
+                      <a href="/2024/12/29/001/" title="SICP学习记录">
+                        <span class="hidden-mobile">SICP学习记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -482,7 +474,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <span>2022-2025</span> <i class="iconfont icon-love"></i> <span>w42s2tflx</span> 
+       <span>2022-2026</span> <i class="iconfont icon-love"></i> <span>w42s2tflx</span> 
     </div>
   
   
@@ -641,7 +633,6 @@
 
 
   
-
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
