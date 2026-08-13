@@ -1,0 +1,1011 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/R-C.jpg">
+  <link rel="icon" href="/img/R-C.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="w42s2tflx">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Weird Algorithm 题目大意：给定一个正整数 n，反复执行以下操作：若 n 是偶数，则将它除以 2；若 n 是奇数，则将它乘以 3 再加 1。按顺序输出从初始值到 1 的整个变化过程。 解题思路：直接模拟。每轮先输出当前的 n；如果 n 已经等于 1，就结束循环，否则根据奇偶性更新它。中间结果可能超出 int 的范围，因此用 ll 存储。时间复杂度为 O(迭代次数)O(\text{迭">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introductory Problems">
+<meta property="og:url" content="https://w42s2tflx.github.io/2026/05/01/003/index.html">
+<meta property="og:site_name" content="Solitude">
+<meta property="og:description" content="Weird Algorithm 题目大意：给定一个正整数 n，反复执行以下操作：若 n 是偶数，则将它除以 2；若 n 是奇数，则将它乘以 3 再加 1。按顺序输出从初始值到 1 的整个变化过程。 解题思路：直接模拟。每轮先输出当前的 n；如果 n 已经等于 1，就结束循环，否则根据奇偶性更新它。中间结果可能超出 int 的范围，因此用 ll 存储。时间复杂度为 O(迭代次数)O(\text{迭">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w42s2tflx.github.io/img/6.png">
+<meta property="article:published_time" content="2026-05-01T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-13T14:33:41.192Z">
+<meta property="article:author" content="w42s2tflx">
+<meta property="article:tag" content="CSES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://w42s2tflx.github.io/img/6.png">
+  
+  
+  
+  <title>Introductory Problems - Solitude</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"w42s2tflx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wizard Note</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/6.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Introductory Problems"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        w42s2tflx
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-01 21:00" pubdate>
+          2026年5月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Introductory Problems</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+<h2 id="Weird-Algorithm">Weird Algorithm</h2>
+<p><strong>题目大意</strong>：给定一个正整数 <code>n</code>，反复执行以下操作：若 <code>n</code> 是偶数，则将它除以 2；若 <code>n</code> 是奇数，则将它乘以 3 再加 1。按顺序输出从初始值到 1 的整个变化过程。</p>
+<p><strong>解题思路</strong>：直接模拟。每轮先输出当前的 <code>n</code>；如果 <code>n</code> 已经等于 1，就结束循环，否则根据奇偶性更新它。中间结果可能超出 <code>int</code> 的范围，因此用 <code>ll</code> 存储。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mtext>迭代次数</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\text{迭代次数})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord text"><span class="mord cjk_fallback">迭代次数</span></span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-65ad56e5" role="button" aria-expanded="false" aria-controls="collapse-65ad56e5">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-65ad56e5">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    ll n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>        cout &lt;&lt; n &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">if</span> (n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) &#123;<br>            n = n / <span class="hljs-number">2</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            n = <span class="hljs-number">3</span> * n + <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Missing-Number">Missing Number</h2>
+<p><strong>题目大意</strong>：给出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 到 <code>n</code> 中的 <code>n - 1</code> 个互不相同的数，找出唯一缺失的数。</p>
+<p><strong>解题思路</strong>：用布尔数组 <code>seen</code> 记录每个数是否出现。读入 <code>x</code> 时将 <code>seen[x]</code> 标记为 <code>true</code>，最后扫描 <code>1</code> 到 <code>n</code>，未被标记的下标就是答案。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，空间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-28ab9646" role="button" aria-expanded="false" aria-controls="collapse-28ab9646">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-28ab9646">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">seen</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-type">int</span> x;<br>        cin &gt;&gt; x;<br>        seen[x] = <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!seen[i]) &#123;<br>            cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Repetitions">Repetitions</h2>
+<p><strong>题目大意</strong>：给定一个只含 <code>A</code>、<code>C</code>、<code>G</code>、<code>T</code> 的字符串，求由同一字符连续组成的最长子串长度。</p>
+<p><strong>解题思路</strong>：从左到右扫描字符串，用 <code>cur</code> 记录当前连续段的长度。若 <code>s[i]</code> 与 <code>s[i - 1]</code> 不同，代码先把 <code>cur</code> 置为 0；随后统一执行 <code>cur++</code>，因此新连续段的长度变为 1。每轮用 <code>cur</code> 更新答案 <code>res</code>。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，空间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-e064c6af" role="button" aria-expanded="false" aria-controls="collapse-e064c6af">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-e064c6af">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    string s;<br>    cin &gt;&gt; s;<br>    <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-type">int</span> cur = <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (s[i - <span class="hljs-number">1</span>] != s[i])<br>            cur = <span class="hljs-number">0</span>;<br>        cur++;<br>        res = <span class="hljs-built_in">max</span>(res, cur);<br>    &#125;<br>    cout &lt;&lt; res &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Increasing-Array">Increasing Array</h2>
+<p><strong>题目大意</strong>：给定一个长度为 <code>n</code> 的数组。每次操作可以把任意元素加 1，求使数组变为不下降序列所需的最少操作次数。</p>
+<p><strong>解题思路</strong>：从左到右贪心处理。若 <code>x[i] &lt; x[i - 1]</code>，为了满足不下降条件，<code>x[i]</code> 至少要增加到 <code>x[i - 1]</code>，因此把差值 <code>x[i - 1] - x[i]</code> 加入答案，并令 <code>x[i] = x[i - 1]</code>。增加得更多只会浪费操作并提高后续元素必须达到的下界，所以取恰好相等最优。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-5b75660a" role="button" aria-expanded="false" aria-controls="collapse-5b75660a">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-5b75660a">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">x</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; x[i];<br>    &#125;<br>    ll res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (x[i] &lt; x[i - <span class="hljs-number">1</span>]) &#123;<br>            res += x[i - <span class="hljs-number">1</span>] - x[i];<br>            x[i] = x[i - <span class="hljs-number">1</span>];<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; res &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Permutations">Permutations</h2>
+<p><strong>题目大意</strong>：构造一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 到 <code>n</code> 的排列，使任意两个相邻数之差都不等于 1。若无法构造，输出 <code>NO SOLUTION</code>。</p>
+<p><strong>解题思路</strong>：<code>n = 1</code> 时直接输出 1，<code>n = 2</code> 或 <code>n = 3</code> 时无解。对 <code>n &gt;= 4</code>，先按升序输出所有偶数，再按升序输出所有奇数。同为偶数或同为奇数的相邻两数之差都是 2；两段交界处是最大的偶数与 1，其差也不会是 1，因此构造合法。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-9d3fcfc2" role="button" aria-expanded="false" aria-controls="collapse-9d3fcfc2">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-9d3fcfc2">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;<br>        cout &lt;&lt; <span class="hljs-number">1</span> &lt;&lt; endl;<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span> || n == <span class="hljs-number">3</span>) &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;NO SOLUTION&quot;</span> &lt;&lt; endl;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-type">int</span> l = <span class="hljs-number">2</span>;<br>        <span class="hljs-type">int</span> r = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (l &lt;= n) &#123;<br>            cout &lt;&lt; l &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>            l += <span class="hljs-number">2</span>;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (r &lt;= n) &#123;<br>            cout &lt;&lt; r &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>            r += <span class="hljs-number">2</span>;<br>        &#125;<br>        cout &lt;&lt; endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Number-Spiral">Number Spiral</h2>
+<p><strong>题目大意</strong>：无限方格中按数字螺旋的规律填入正整数。每组输入依次给出行坐标 <code>x</code> 和列坐标 <code>y</code>，求第 <code>x</code> 行、第 <code>y</code> 列上的数字。</p>
+<p><strong>解题思路</strong>：格子所在层数由 <code>max(x, y)</code> 决定，代码按照行坐标 <code>x</code> 与列坐标 <code>y</code> 的大小分两种情况：</p>
+<ul>
+<li>若 <code>x &gt;= y</code>，格子位于第 <code>x</code> 层的下边界。<code>x</code> 为奇数时，从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(x-1)^2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 起沿底边向右递增，答案为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">(x-1)^2+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>；<code>x</code> 为偶数时，从右下角的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 向左递减，答案为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mi>y</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x^2-y+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>。</li>
+<li>若 <code>y &gt; x</code>，格子位于第 <code>y</code> 层的右边界。<code>y</code> 为奇数时，从右下角的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">y^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 向上递减，答案为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mn>2</mn></msup><mo>−</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y^2-x+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>；<code>y</code> 为偶数时，从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(y-1)^2+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 起沿右边向下递增，答案为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>y</mi><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">(y-1)^2+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>。</li>
+</ul>
+<p>每组询问都能在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 时间内计算。坐标最大为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>，平方结果需要用 <code>ll</code> 存储。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-5b5bd572" role="button" aria-expanded="false" aria-controls="collapse-5b5bd572">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-5b5bd572">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    ll x, y;<br>    cin &gt;&gt; x &gt;&gt; y;<br>    ll ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (x &gt;= y) &#123;<br>        ans = (x &amp; <span class="hljs-number">1</span> ? (x - <span class="hljs-number">1</span>) * (x - <span class="hljs-number">1</span>) + y : x * x - y + <span class="hljs-number">1</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        ans = (y &amp; <span class="hljs-number">1</span> ? y * y - x + <span class="hljs-number">1</span> : (y - <span class="hljs-number">1</span>) * (y - <span class="hljs-number">1</span>) + x);<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Two-Knights">Two Knights</h2>
+<p><strong>题目大意</strong>：对每个 <code>k = 1, 2, ..., n</code>，统计在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>×</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">k\times k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 棋盘上放置两匹马且它们互不攻击的方案数。两匹马不区分先后。</p>
+<p><strong>解题思路</strong>：先任取两个不同格子，共有</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo fence="true">(</mo><mfrac linethickness="0px"><msup><mi>k</mi><mn>2</mn></msup><mn>2</mn></mfrac><mo fence="true">)</mo></mrow><mo>=</mo><mfrac><mrow><msup><mi>k</mi><mn>2</mn></msup><mo stretchy="false">(</mo><msup><mi>k</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\binom{k^2}{2}=\frac{k^2(k^2-1)}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4411em;vertical-align:-0.95em;"></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>种放法。两匹马互相攻击时，它们恰好位于某个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2\times3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">3\times2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> 矩形中，并占据一对相距一个马步的角。两种朝向的矩形各有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(k-1)(k-2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span> 个，而每个矩形包含两对这样的格子，因此攻击方案数为</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn><mo>⋅</mo><mn>2</mn><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo>=</mo><mn>4</mn><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">2\cdot2(k-1)(k-2)=4(k-1)(k-2).
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>所以答案为</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><msup><mi>k</mi><mn>2</mn></msup><mo stretchy="false">(</mo><msup><mi>k</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac><mo>−</mo><mn>4</mn><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\frac{k^2(k^2-1)}{2}-4(k-1)(k-2).
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>代码预存了 <code>k &lt;= 5</code> 的答案；从 <code>k = 6</code> 开始，减去的 <code>4 * k * k - 12 * k + 8</code> 正是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">4(k-1)(k-2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span>。每个 <code>k</code> 的计算为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，总时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-dc73f5fd" role="button" aria-expanded="false" aria-controls="collapse-dc73f5fd">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-dc73f5fd">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> a[<span class="hljs-number">9</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">28</span>, <span class="hljs-number">96</span>, <span class="hljs-number">252</span>, <span class="hljs-number">550</span>, <span class="hljs-number">1056</span>, <span class="hljs-number">1848</span>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (i &lt;= <span class="hljs-number">5</span>) &#123;<br>            cout &lt;&lt; a[i] &lt;&lt; endl;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            ll ans = i * i * (i * i - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>            ans = ans - <span class="hljs-number">4</span> * i * i + <span class="hljs-number">12</span> * i - <span class="hljs-number">8</span>;<br>            cout &lt;&lt; ans &lt;&lt; endl;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Two-Sets">Two Sets</h2>
+<p><strong>题目大意</strong>：把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 到 <code>n</code> 的所有整数分成两个集合，使两个集合的元素和相等。若可行，输出任意一种划分；否则输出 <code>NO</code>。</p>
+<p><strong>解题思路</strong>：总和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">s=n(n+1)/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">/2</span></span></span></span> 必须是偶数，否则不可能平分。若 <code>s</code> 为偶数，就令 <code>res = s / 2</code>，从大根堆中按 <code>n, n - 1, ..., 1</code> 的顺序取数：若当前数 <code>x &lt;= res</code>，就将 <code>x</code> 放进集合 <code>a</code> 并令 <code>res -= x</code>；否则放进集合 <code>b</code>。</p>
+<p>这一构造一定能把 <code>res</code> 减到 0。因为每次准备选择当前最大剩余数 <code>x</code> 时，较大的数已经处理完，未处理数正好是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">1,2,\ldots,x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span></span></span></span>。若 <code>res &lt; x</code>，继续跳过 <code>x</code>；当首次出现 <code>res &gt;= x</code> 时，将 <code>x</code> 选入后新的剩余目标小于 <code>x</code>。此后仍有所有更小的连续整数可用，最终总能逐步补出剩余目标。集合 <code>a</code> 的和因此恰为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">s/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord">/2</span></span></span></span>，其余数构成的集合 <code>b</code> 也同样为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">s/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord">/2</span></span></span></span>。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-d7c7f3a4" role="button" aria-expanded="false" aria-controls="collapse-d7c7f3a4">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-d7c7f3a4">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    ll n;<br>    cin &gt;&gt; n;<br>    vector&lt;ll&gt; a, b;<br>    priority_queue&lt;ll&gt; pq;<br>    <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n) &#123; pq.<span class="hljs-built_in">push</span>(i); &#125;<br>    ll res = (n * (n + <span class="hljs-number">1</span>)) / <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">if</span> (res &amp; <span class="hljs-number">1</span>) &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        res /= <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">while</span> (res &gt; <span class="hljs-number">0</span>) &#123;<br>            ll x = pq.<span class="hljs-built_in">top</span>();<br>            pq.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-keyword">if</span> (res &gt;= x) &#123;<br>                res -= x;<br>                a.<span class="hljs-built_in">push_back</span>(x);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                b.<span class="hljs-built_in">push_back</span>(x);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span> (!pq.<span class="hljs-built_in">empty</span>()) &#123;<br>            b.<span class="hljs-built_in">push_back</span>(pq.<span class="hljs-built_in">top</span>());<br>            pq.<span class="hljs-built_in">pop</span>();<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; endl;<br>        cout &lt;&lt; a.<span class="hljs-built_in">size</span>() &lt;&lt; endl;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> x : a) &#123;<br>            cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        &#125;<br>        cout &lt;&lt; endl;<br>        cout &lt;&lt; b.<span class="hljs-built_in">size</span>() &lt;&lt; endl;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> x : b) &#123;<br>            cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        &#125;<br>        cout &lt;&lt; endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Bit-Strings">Bit Strings</h2>
+<p><strong>题目大意</strong>：求长度为 <code>n</code> 的二进制字符串共有多少个，答案对 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>9</mn></msup><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">10^9+7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span> 取模。</p>
+<p><strong>解题思路</strong>：每一位都可以独立选择 0 或 1，因此答案是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span>。代码在 <code>solve()</code> 中用二进制快速幂计算：<code>a</code> 保存当前答案，<code>b</code> 保存当前底数；若 <code>n</code> 的最低位为 1，就把 <code>b</code> 乘入 <code>a</code>，随后将 <code>b</code> 平方并右移 <code>n</code>。每次乘法都对 <code>mod</code> 取模，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-098520c4" role="button" aria-expanded="false" aria-controls="collapse-098520c4">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-098520c4">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">const</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">expow</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (b) &#123;<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>)<br>            res = (res * a) % mod;<br>        a = (a * a) % mod;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    ll a = <span class="hljs-number">1</span>, b = <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">while</span> (n) &#123;<br>        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>)<br>            a = (a * b) % mod;<br>        b = (b * b) % mod;<br>        n &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    cout &lt;&lt; a &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Trailing-Zeros">Trailing Zeros</h2>
+<p><strong>题目大意</strong>：求 <code>n!</code> 的十进制表示末尾有多少个连续的 0。</p>
+<p><strong>解题思路</strong>：一个末尾 0 来自一个因子 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>=</mo><mn>2</mn><mo>×</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">10=2\times5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>。在 <code>n!</code> 中因子 2 比因子 5 多，因此只需统计因子 5 的个数。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> 的倍数至少贡献一个 5，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn></mrow><annotation encoding="application/x-tex">25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">25</span></span></span></span> 的倍数还会多贡献一个，依此类推，答案为</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mo fence="true">⌊</mo><mfrac><mi>n</mi><mn>5</mn></mfrac><mo fence="true">⌋</mo></mrow><mo>+</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>n</mi><mn>25</mn></mfrac><mo fence="true">⌋</mo></mrow><mo>+</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>n</mi><mn>125</mn></mfrac><mo fence="true">⌋</mo></mrow><mo>+</mo><mo>⋯</mo><mtext> </mtext><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\left\lfloor\frac n5\right\rfloor+
+\left\lfloor\frac n{25}\right\rfloor+
+\left\lfloor\frac n{125}\right\rfloor+\cdots.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">5</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">⌋</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">25</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">⌋</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.836em;vertical-align:-0.686em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">125</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">⌋</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.313em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">.</span></span></span></span></span></p>
+<p>代码每轮把 <code>n / 5</code> 加入答案，再令 <code>n /= 5</code>，直到 <code>n &lt; 5</code>。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-a8163d0f" role="button" aria-expanded="false" aria-controls="collapse-a8163d0f">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-a8163d0f">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    ll n;<br>    cin &gt;&gt; n;<br>    ll ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (n &gt;= <span class="hljs-number">5</span>) &#123;<br>        ans += n / <span class="hljs-number">5</span>;<br>        n /= <span class="hljs-number">5</span>;<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Coin-Piles">Coin Piles</h2>
+<p><strong>题目大意</strong>：有两堆硬币，数量分别为 <code>a</code> 和 <code>b</code>。每次操作必须从一堆取走 1 枚、从另一堆取走 2 枚。判断能否经过若干次操作将两堆同时取空。</p>
+<p><strong>解题思路</strong>：设“从第一堆取 1 枚、第二堆取 2 枚”的操作执行 <code>x</code> 次，另一种操作执行 <code>y</code> 次，则</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>a</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo separator="true">,</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>b</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+a&amp;=x+2y,\\
+b&amp;=2x+y.
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.75em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">a</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.25em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.75em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">2</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">.</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.25em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>由此可知 <code>a + b</code> 必须能被 3 整除；同时 <code>x, y &gt;= 0</code> 要求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≤</mo><mn>2</mn><mi>b</mi></mrow><annotation encoding="application/x-tex">a\le 2b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">2</span><span class="mord mathnormal">b</span></span></span></span> 且 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>≤</mo><mn>2</mn><mi>a</mi></mrow><annotation encoding="application/x-tex">b\le 2a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8304em;vertical-align:-0.136em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal">a</span></span></span></span>。代码先交换两堆，使 <code>a &lt;= b</code>，于是只需检查 <code>(a + b) % 3 == 0</code> 且 <code>b &lt;= 2 * a</code>。每组数据的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-9a1c5b83" role="button" aria-expanded="false" aria-controls="collapse-9a1c5b83">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-9a1c5b83">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> a, b;<br>    cin &gt;&gt; a &gt;&gt; b;<br>    <span class="hljs-keyword">if</span> (a &gt; b)<br>        <span class="hljs-built_in">swap</span>(a, b);<br>    <span class="hljs-keyword">if</span> ((a + b) % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> &amp;&amp; b &lt;= <span class="hljs-number">2</span> * a)<br>        cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-keyword">else</span><br>        cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Palindrome-Reorder">Palindrome Reorder</h2>
+<p><strong>题目大意</strong>：重新排列给定字符串的全部字符，使结果成为回文串。若可行，输出任意一种结果；否则输出 <code>NO SOLUTION</code>。</p>
+<p><strong>解题思路</strong>：统计每个字符的出现次数。回文串中除中心位置外，所有字符都必须成对出现，因此出现奇数次的字符不能超过一个。构造时按字母顺序输出每个字符的一半，形成左半部分；若存在奇数次字符，将它放在中心；最后按相反顺序输出每个字符的一半，形成右半部分。左右两部分互为镜像，因此结果一定是回文串。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-d02d7b34" role="button" aria-expanded="false" aria-controls="collapse-d02d7b34">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-d02d7b34">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    string s;<br>    cin &gt;&gt; s;<br><br>    map&lt;<span class="hljs-type">char</span>, <span class="hljs-type">int</span>&gt; count;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : s) &#123;<br>        count[c]++;<br>    &#125;<br><br>    <span class="hljs-type">int</span> odds = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">char</span> center;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c = <span class="hljs-string">&#x27;A&#x27;</span>; c &lt;= <span class="hljs-string">&#x27;Z&#x27;</span>; c++) &#123;<br>        <span class="hljs-keyword">if</span> (count[c] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;<br>            odds++;<br>            center = c;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (odds &gt; <span class="hljs-number">1</span>) &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;NO SOLUTION\n&quot;</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c = <span class="hljs-string">&#x27;A&#x27;</span>; c &lt;= <span class="hljs-string">&#x27;Z&#x27;</span>; c++) &#123;<br>            cout &lt;&lt; <span class="hljs-built_in">string</span>(count[c] / <span class="hljs-number">2</span>, c);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (odds) &#123;<br>            cout &lt;&lt; center;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c = <span class="hljs-string">&#x27;Z&#x27;</span>; c &gt;= <span class="hljs-string">&#x27;A&#x27;</span>; c--) &#123;<br>            cout &lt;&lt; <span class="hljs-built_in">string</span>(count[c] / <span class="hljs-number">2</span>, c);<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Gray-Code">Gray Code</h2>
+<p><strong>题目大意</strong>：构造 <code>n</code> 位格雷码，即按某种顺序输出全部 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> 个 <code>n</code> 位二进制串，使任意相邻两个串恰好有一位不同。</p>
+<p><strong>解题思路</strong>：递归构造。已知 <code>n - 1</code> 位格雷码后，先按原顺序给每个串添加前缀 <code>0</code>，再将原序列反转并给每个串添加前缀 <code>1</code>。两部分内部仍保持相邻串只差一位；两部分连接处的后 <code>n - 1</code> 位相同，只有新增的最高位不同，因此整个序列合法。共生成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> 个长度为 <code>n</code> 的字符串，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mn>2</mn><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-cf7df53d" role="button" aria-expanded="false" aria-controls="collapse-cf7df53d">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-cf7df53d">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">create</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;<br>        <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;0&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>&#125;;<br>    &#125;<br>    vector&lt;string&gt; code;<br>    <span class="hljs-keyword">auto</span> prev = <span class="hljs-built_in">create</span>(n - <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> s : prev) &#123;<br>        code.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&quot;0&quot;</span> + s);<br>    &#125;<br>    <span class="hljs-built_in">reverse</span>(prev.<span class="hljs-built_in">begin</span>(), prev.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> s : prev) &#123;<br>        code.<span class="hljs-built_in">push_back</span>(<span class="hljs-string">&quot;1&quot;</span> + s);<br>    &#125;<br>    <span class="hljs-keyword">return</span> code;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">auto</span> code = <span class="hljs-built_in">create</span>(n);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> s : code) &#123;<br>        cout &lt;&lt; s &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Tower-of-Hanoi">Tower of Hanoi</h2>
+<p><strong>题目大意</strong>：有 3 根柱子，需要把 <code>n</code> 个大小不同的圆盘从 1 号柱全部移动到 3 号柱，可以借助 2 号柱。每次只能移动一个圆盘，且大圆盘不能放在小圆盘上。输出最少移动次数及每一步操作。</p>
+<p><strong>解题思路</strong>：用递归函数 <code>move(n, a, b, c)</code> 表示借助柱 <code>c</code>，把 <code>n</code> 个圆盘从柱 <code>a</code> 移到柱 <code>b</code>。先把上方 <code>n - 1</code> 个圆盘从 <code>a</code> 移到 <code>c</code>，再把最大的圆盘从 <code>a</code> 移到 <code>b</code>，最后把 <code>n - 1</code> 个圆盘从 <code>c</code> 移到 <code>b</code>。每个圆盘都按这一过程移动，得到的步数满足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">T(n)=2T(n-1)+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7477em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，也是完成任务所需的最少步数。代码把每次移动存入全局数组 <code>moves</code>，最后统一输出。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mn>2</mn><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-b83a4609" role="button" aria-expanded="false" aria-controls="collapse-b83a4609">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-b83a4609">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++">vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; moves;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">move</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> c)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;<br>        moves.<span class="hljs-built_in">emplace_back</span>(a, b);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">move</span>(n - <span class="hljs-number">1</span>, a, c, b);<br>        <span class="hljs-built_in">move</span>(<span class="hljs-number">1</span>, a, b, c);<br>        <span class="hljs-built_in">move</span>(n - <span class="hljs-number">1</span>, c, b, a);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-built_in">move</span>(n, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>);<br>    cout &lt;&lt; moves.<span class="hljs-built_in">size</span>() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [a, b] : moves) &#123;<br>        cout &lt;&lt; a &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; b &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Creating-Strings">Creating Strings</h2>
+<p><strong>题目大意</strong>：给定一个由小写字母组成的字符串，输出用它的全部字符能够组成的所有不同字符串。结果按字典序排列，并先输出结果数量。</p>
+<p><strong>解题思路</strong>：先将 <code>s</code> 排序，得到字典序最小的排列；随后用 <code>next_permutation</code> 依次生成更大的排列，直到不存在下一个排列。即使字符串含有重复字符，<code>next_permutation</code> 也会直接移动到下一个不同排列，因此不会产生重复结果。代码将所有排列保存到 <code>v</code>，再输出数量和内容。若不同排列数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>P</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(Pn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>；题目中 <code>n &lt;= 8</code>，可以通过。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-2063547c" role="button" aria-expanded="false" aria-controls="collapse-2063547c">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-2063547c">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    string s;<br>    cin &gt;&gt; s;<br><br>    <span class="hljs-built_in">sort</span>(s.<span class="hljs-built_in">begin</span>(), s.<span class="hljs-built_in">end</span>());<br>    vector&lt;string&gt; v;<br>    <span class="hljs-keyword">do</span> &#123;<br>        v.<span class="hljs-built_in">push_back</span>(s);<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-built_in">next_permutation</span>(s.<span class="hljs-built_in">begin</span>(), s.<span class="hljs-built_in">end</span>()));<br><br>    cout &lt;&lt; v.<span class="hljs-built_in">size</span>() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> s : v) &#123;<br>        cout &lt;&lt; s &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Apple-Division">Apple Division</h2>
+<p><strong>题目大意</strong>：有 <code>n</code> 个苹果，第 <code>i</code> 个苹果的重量为 <code>a[i]</code>。把所有苹果分成两组，求两组总重量之差的最小值。</p>
+<p><strong>解题思路</strong>：因为 <code>n &lt;= 20</code>，可以枚举全部 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> 个子集。二进制状态 <code>i</code> 的第 <code>j</code> 位表示是否把苹果 <code>a[j]</code> 放入第一组。设所有苹果的总重量为 <code>sum</code>，当前子集重量为 <code>res</code>，则另一组重量为 <code>sum - res</code>，两组差为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>s</mi><mi>u</mi><mi>m</mi><mo>−</mo><mn>2</mn><mi>r</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|sum-2res|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">s</span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord mathnormal">res</span><span class="mord">∣</span></span></span></span>。对所有状态取最小值即可。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mn>2</mn><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-12442369" role="button" aria-expanded="false" aria-controls="collapse-12442369">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-12442369">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">a</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>) cin &gt;&gt; a[i];<br>    ll sum = <span class="hljs-built_in">accumulate</span>(a.<span class="hljs-built_in">begin</span>(), a.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0ll</span>);<br>    ll ans = LONG_LONG_MAX;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; (<span class="hljs-number">1</span> &lt;&lt; n); i++) &#123;<br>        ll res = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (i &amp; (<span class="hljs-number">1</span> &lt;&lt; j)) &#123;<br>                res += a[j];<br>            &#125;<br>        &#125;<br>        ans = <span class="hljs-built_in">min</span>(ans, <span class="hljs-built_in">abs</span>(sum - <span class="hljs-number">2</span> * res));<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Chessboard-and-Queens">Chessboard and Queens</h2>
+<p><strong>题目大意</strong>：在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">8\times8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">8</span></span></span></span> 棋盘上放置 8 个皇后，使任意两个皇后都不在同一行、同一列或同一条对角线上。标记为 <code>*</code> 的格子不能放置皇后，求合法方案数。</p>
+<p><strong>解题思路</strong>：按行回溯，每一行恰好选择一列放置皇后。递归处理第 <code>y</code> 行时，枚举列 <code>x</code>，跳过禁用格 <code>grid[y][x]</code>，并用 <code>col[x]</code>、<code>diag1[x + y]</code>、<code>diag2[y - x + N]</code> 分别判断该列和两条对角线是否已有皇后。若没有冲突，就设置标记并递归到下一行，返回后恢复标记。处理到 <code>y == N</code> 时，说明 8 行都成功放置，答案加 1。每种合法方案会被恰好统计一次。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-3eef66d4" role="button" aria-expanded="false" aria-controls="collapse-3eef66d4">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-3eef66d4">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">8</span>;<br><br>string grid[N];<br><span class="hljs-type">int</span> total;<br><span class="hljs-type">bool</span> col[N], diag1[<span class="hljs-number">2</span> * N], diag2[<span class="hljs-number">2</span> * N];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">search</span><span class="hljs-params">(<span class="hljs-type">int</span> y)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (y == N) &#123;<br>        total++;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">0</span>; x &lt; N; x++) &#123;<br>        <span class="hljs-keyword">if</span> (grid[y][x] == <span class="hljs-string">&#x27;*&#x27;</span>) &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (col[x] || diag1[x + y] || diag2[y - x + N]) &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        col[x] = diag1[x + y] = diag2[y - x + N] = <span class="hljs-literal">true</span>;<br>        <span class="hljs-built_in">search</span>(y + <span class="hljs-number">1</span>);<br>        col[x] = diag1[x + y] = diag2[y - x + N] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;row : grid) &#123;<br>        cin &gt;&gt; row;<br>    &#125;<br>    <span class="hljs-built_in">search</span>(<span class="hljs-number">0</span>);<br>    cout &lt;&lt; total &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Raab-Game-I">Raab Game I</h2>
+<p><strong>题目大意</strong>：两名玩家各有一套点数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 到 <code>n</code> 的牌。每轮双方各出一张未使用的牌，点数较大者得 1 分，相同则都不得分。给定最终得分 <code>a</code>、<code>b</code>，判断结果是否可能；若可能，构造双方的出牌顺序。</p>
+<p><strong>解题思路</strong>：每轮至多产生 1 分，所以首先必须满足 <code>a + b &lt;= n</code>。代码令第二名玩家按 <code>1, 2, ..., n</code> 出牌，并为第一名玩家构造排列 <code>v</code>：</p>
+<ul>
+<li>前 <code>n - a - b</code> 轮放入 <code>1</code> 到 <code>n - a - b</code>，双方平局；</li>
+<li>接下来的 <code>a</code> 轮放入 <code>n - a + 1</code> 到 <code>n</code>，这些牌都大于第二名玩家在对应轮次的牌，第一名玩家获胜；</li>
+<li>最后的 <code>b</code> 轮放入 <code>n - a - b + 1</code> 到 <code>n - a</code>，这些牌都小于第二名玩家在对应轮次的牌，第二名玩家获胜。</li>
+</ul>
+<p>三个区间互不重叠，并恰好覆盖 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 到 <code>n</code>。并非所有满足 <code>a + b &lt;= n</code> 的输入都能通过上述比较，例如一方得 0 分而另一方得正分时无解，因此代码实际逐轮比较 <code>v[i]</code> 与 <code>i</code>，从 <code>a</code>、<code>b</code> 中扣除构造出的胜局；只有二者都变为 0 时才输出方案。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-2a25062f" role="button" aria-expanded="false" aria-controls="collapse-2a25062f">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-2a25062f">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, a, b;<br>    cin &gt;&gt; n &gt;&gt; a &gt;&gt; b;<br>    <span class="hljs-keyword">if</span> (a + b &lt;= n) &#123;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">v</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-type">int</span> z = <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n - a - b) v[++z] = i;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, a) v[++z] = n - a + i;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, b) v[++z] = n - a - b + i;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n) &#123;<br>            <span class="hljs-keyword">if</span> (v[i] &gt; i)<br>                a--;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (v[i] &lt; i)<br>                b--;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (a || b) &#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n) cout &lt;&lt; v[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        cout &lt;&lt; endl;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n) cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        cout &lt;&lt; endl;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Mex-Grid-Construction">Mex Grid Construction</h2>
+<p><strong>题目大意</strong>：构造一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 的网格。每个格子的值等于其左侧同一行与上方同一列中没有出现过的最小非负整数，即这些已有数的 mex。</p>
+<p><strong>解题思路</strong>：代码先把所有 <code>a[i][j]</code> 初始化为 <code>-1</code>，再按行从左到右填表。处理 <code>(i, j)</code> 时，它实际收集的是当前行 <code>a[i][1..j]</code> 和当前列 <code>a[1..i][j]</code>：其中 <code>a[i][j]</code> 尚未填写，所以会被收集两次，值都为 <code>-1</code>；其余元素正好是题目要求的左侧和上方已填数字。由于 mex 只关心非负整数，这两个 <code>-1</code> 不影响结果。</p>
+<p>将收集到的 <code>v</code> 排序后，从 <code>p = 0</code> 开始扫描：遇到 <code>item == p</code> 就令 <code>p++</code>，最终得到最小未出现的非负整数。左侧与上方真正参与 mex 的格子共有 <code>(j - 1) + (i - 1)</code> 个，因此 mex 至多为 <code>i + j - 2</code>，全局至多为 <code>2n - 2</code>。每个格子最多排序 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 个数，总时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>3</mn></msup><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^3\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-fcf67c0f" role="button" aria-expanded="false" aria-controls="collapse-fcf67c0f">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-fcf67c0f">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> n;<br><span class="hljs-type">int</span> a[<span class="hljs-number">101</span>][<span class="hljs-number">101</span>];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n) &#123;<br>        <span class="hljs-built_in">lep</span>(j, <span class="hljs-number">1</span>, n) &#123; a[i][j] = <span class="hljs-number">-1</span>; &#125;<br>    &#125;<br>    <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">1</span>, n) &#123;<br>        <span class="hljs-built_in">lep</span>(j, <span class="hljs-number">1</span>, n) &#123;<br>            <span class="hljs-keyword">if</span> (a[i][j] == <span class="hljs-number">-1</span>) &#123;<br>                vector&lt;<span class="hljs-type">int</span>&gt; v;<br>                <span class="hljs-built_in">lep</span>(l, <span class="hljs-number">1</span>, j) &#123; v.<span class="hljs-built_in">emplace_back</span>(a[i][l]); &#125;<br>                <span class="hljs-built_in">lep</span>(r, <span class="hljs-number">1</span>, i) &#123; v.<span class="hljs-built_in">emplace_back</span>(a[r][j]); &#125;<br>                <span class="hljs-built_in">sort</span>(v.<span class="hljs-built_in">begin</span>(), v.<span class="hljs-built_in">end</span>());<br>                <span class="hljs-type">int</span> p = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> item : v) &#123;<br>                    <span class="hljs-keyword">if</span> (item == p) &#123;<br>                        p++;<br>                    &#125;<br>                &#125;<br>                a[i][j] = p;<br>                cout &lt;&lt; a[i][j] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>            &#125;<br>        &#125;<br>        cout &lt;&lt; endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Knight-Moves-Grid">Knight Moves Grid</h2>
+<p><strong>题目大意</strong>：在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 棋盘上，一匹马从左上角出发并按国际象棋中马的规则移动。求到达每个格子的最少步数。</p>
+<p><strong>解题思路</strong>：把每个格子看作图上的节点，马能一步到达的两个格子之间连边。所有边的代价都是 1，因此从左上角进行 BFS 即可。<code>grid[y][x]</code> 既记录最短距离，也用于判断是否访问过；首次到达 <code>(ny, nx)</code> 时令其距离为 <code>grid[y][x] + 1</code>。代码用 <code>vector</code> 保存队列，并让下标 <code>i</code> 依次向后移动。每个格子至多入队一次，每次检查 8 个方向，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-687cd73f" role="button" aria-expanded="false" aria-controls="collapse-687cd73f">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-687cd73f">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br><br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">grid</span>(n, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(n, <span class="hljs-number">-1</span>));<br>    vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; queue;<br><br>    grid[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    queue.<span class="hljs-built_in">emplace_back</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br><br>    <span class="hljs-type">int</span> dy[<span class="hljs-number">8</span>] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">-2</span>&#125;;<br>    <span class="hljs-type">int</span> dx[<span class="hljs-number">8</span>] = &#123;<span class="hljs-number">2</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>&#125;;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; queue.<span class="hljs-built_in">size</span>(); i++) &#123;<br>        <span class="hljs-keyword">auto</span> [y, x] = queue[i];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> d = <span class="hljs-number">0</span>; d &lt; <span class="hljs-number">8</span>; d++) &#123;<br>            <span class="hljs-type">int</span> ny = y + dy[d];<br>            <span class="hljs-type">int</span> nx = x + dx[d];<br>            <span class="hljs-keyword">if</span> (ny &lt; <span class="hljs-number">0</span> || ny &gt;= n || nx &lt; <span class="hljs-number">0</span> || nx &gt;= n || grid[ny][nx] != <span class="hljs-number">-1</span>) &#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            grid[ny][nx] = grid[y][x] + <span class="hljs-number">1</span>;<br>            queue.<span class="hljs-built_in">emplace_back</span>(ny, nx);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y = <span class="hljs-number">0</span>; y &lt; n; y++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">0</span>; x &lt; n; x++) &#123;<br>            cout &lt;&lt; grid[y][x] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Grid-Coloring-I">Grid Coloring I</h2>
+<p><strong>题目大意</strong>：给定一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n\times m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> 网格，每个格子的原颜色是 <code>A</code> 到 <code>D</code> 之一。需要重新为每个格子选择一种颜色，使它与原颜色不同，并且任意上下左右相邻格子的颜色不同。输出一种方案；若不存在则输出 <code>IMPOSSIBLE</code>。</p>
+<p><strong>解题思路</strong>：按从上到下、从左到右的顺序填色。处理 <code>(y, x)</code> 时，只有上方和左侧格子已经确定，只需避开原颜色、上方颜色和左侧颜色，最多排除 3 种颜色。可选颜色共有 <code>A</code>、<code>B</code>、<code>C</code>、<code>D</code> 四种，因此一定至少剩下一种，代码选择按字母顺序遇到的第一种。之后填右侧和下方格子时也会避开当前颜色，所以最终所有相邻格均不同，方案始终存在。时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nm)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">nm</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-b829a153" role="button" aria-expanded="false" aria-controls="collapse-b829a153">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-b829a153">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, m;<br>    cin &gt;&gt; n &gt;&gt; m;<br><br>    <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">grid</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        cin &gt;&gt; grid[i];<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y = <span class="hljs-number">0</span>; y &lt; n; y++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">0</span>; x &lt; m; x++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> c = <span class="hljs-string">&#x27;A&#x27;</span>; c &lt;= <span class="hljs-string">&#x27;D&#x27;</span>; c++) &#123;<br>                <span class="hljs-type">bool</span> fail = <span class="hljs-literal">false</span>;<br>                <span class="hljs-keyword">if</span> (grid[y][x] == c) fail = <span class="hljs-literal">true</span>;<br>                <span class="hljs-keyword">if</span> (y &gt; <span class="hljs-number">0</span> &amp;&amp; grid[y - <span class="hljs-number">1</span>][x] == c) fail = <span class="hljs-literal">true</span>;<br>                <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">0</span> &amp;&amp; grid[y][x - <span class="hljs-number">1</span>] == c) fail = <span class="hljs-literal">true</span>;<br>                <span class="hljs-keyword">if</span> (!fail) &#123;<br>                    grid[y][x] = c;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>            cout &lt;&lt; grid[y][x];<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Digit-Queries">Digit Queries</h2>
+<p><strong>题目大意</strong>：将所有正整数依次拼接成无限字符串 <code>123456789101112...</code>。每次询问给定一个从 1 开始的位置 <code>n</code>，求该位置上的数字。</p>
+<p><strong>解题思路</strong>：按整数位数分块。<code>k</code> 位数共有 <code>w</code> 个，它们贡献 <code>w * k</code> 个字符；代码从 1 位数开始，只要查询位置 <code>n</code> 超过当前块，就减去整块长度，并将 <code>v</code> 增加 <code>w</code>，使 <code>v</code> 始终表示当前块之前共有多少个整数。循环结束后，<code>a = (n + k - 1) / k</code> 是目标字符位于当前块的第几个整数，故该整数为 <code>z = v + a</code>；<code>b = (n - 1 + k) % k</code> 是字符在 <code>z</code> 中的从 0 开始下标。转成字符串后输出 <code>res[b]</code> 即可。全程使用 <code>ll</code>，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-fb15a840" role="button" aria-expanded="false" aria-controls="collapse-fb15a840">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-fb15a840">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++">ll n;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    ll w = <span class="hljs-number">9</span>, k = <span class="hljs-number">1</span>, v = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (n &gt; w * k) &#123;<br>        v += w;<br>        n -= w * k;<br>        w *= <span class="hljs-number">10</span>;<br>        k++;<br>    &#125;<br>    ll a = (n + k - <span class="hljs-number">1</span>) / k, b = (n - <span class="hljs-number">1</span> + k) % k;<br>    ll z = v + a;<br>    string res = <span class="hljs-built_in">to_string</span>(z);<br>    cout &lt;&lt; res[b] &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="String-Reorder">String Reorder</h2>
+<p><strong>题目大意</strong>：重新排列给定字符串的全部字符，使任意两个相邻字符都不同，并在所有合法排列中字典序最小。若无法做到，输出 <code>-1</code>。</p>
+<p><strong>解题思路</strong>：若剩余字符串长度为 <code>length</code>，某字符还剩 <code>v[i]</code> 个，要把这些相同字符隔开，至少需要 <code>v[i] - 1</code> 个其他字符，因此必须满足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>v</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>−</mo><mn>1</mn><mo>≤</mo><mi>l</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">2v[i]-1\le length</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span></span></span></span>。代码用 <code>check(length)</code> 检查所有字符是否都满足这一条件；该条件也是可行的充分条件。</p>
+<p>构造时从左到右确定每一位。对当前位置按 <code>A</code> 到 <code>Z</code> 尝试字符，跳过数量为 0 或与上一位相同的字符。暂时将候选字符的数量减 1，再检查剩余部分是否仍可构造；若可行，就确定该字符，否则恢复数量并尝试下一个。每一步都选择字典序最小的可行字符，因此最终结果字典序最小。每个位置最多尝试 26 个字符，每次检查 26 种计数，时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mn>26</mn><mn>2</mn></msup><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(26^2n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">2</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-7467bebd" role="button" aria-expanded="false" aria-controls="collapse-7467bebd">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-7467bebd">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    string s;<br>    cin &gt;&gt; s;<br>    <span class="hljs-type">int</span> sz = s.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">v</span><span class="hljs-params">(<span class="hljs-number">26</span>, <span class="hljs-number">0</span>)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> ch : s) v[ch - <span class="hljs-string">&#x27;A&#x27;</span>]++;<br>    <span class="hljs-keyword">auto</span> check = [&amp;](<span class="hljs-type">int</span> length) &#123;<br>        <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">0</span>, <span class="hljs-number">25</span>) &#123;<br>            <span class="hljs-keyword">if</span> (v[i] * <span class="hljs-number">2</span> - <span class="hljs-number">1</span> &gt; length) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">check</span>(sz)) &#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">char</span> last = <span class="hljs-string">&#x27;$&#x27;</span>;<br>    <span class="hljs-built_in">lep</span>(i, <span class="hljs-number">0</span>, sz - <span class="hljs-number">1</span>) &#123;<br>        <span class="hljs-built_in">lep</span>(j, <span class="hljs-number">0</span>, <span class="hljs-number">25</span>) &#123;<br>            <span class="hljs-type">char</span> now = <span class="hljs-built_in">char</span>(j + <span class="hljs-string">&#x27;A&#x27;</span>);<br>            <span class="hljs-keyword">if</span> (!v[j])<br>                <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span> (now == last)<br>                <span class="hljs-keyword">continue</span>;<br>            v[j]--;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">check</span>(sz - i - <span class="hljs-number">1</span>)) &#123;<br>                last = now;<br>                cout &lt;&lt; now;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            v[j]++;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Grid-Path-Description">Grid Path Description</h2>
+<p><strong>题目大意</strong>：在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>×</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">7\times7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span> 网格中，从左上角出发，经过恰好 48 步到达左下角，并且不能重复经过格子。输入一个长度为 48 的路径描述串，其中 <code>D</code>、<code>U</code>、<code>R</code>、<code>L</code> 表示固定方向，<code>?</code> 可表示任意方向。求符合描述的合法路径数。</p>
+<p><strong>解题思路</strong>：直接 DFS 枚举每一条可能的路径会超时，需要剪枝，主要有三个优化：</p>
+<ol>
+<li>
+<p>已经到达终点（左下角）但还没走满 48 步，直接返回，因为题目要求路径必须走满 48 步。</p>
+</li>
+<li>
+<p>当前格子的上下都走不了、但左右还能走时，网格会被分成互不相通的两块，每块里都还有没走过的格子，说明永远走不完，直接返回。图示中 <code>1</code> 是当前位置，<code>0</code> 是还没走过的格子，<code>#</code> 是已经走过或不能走的位置：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-number">000</span>#<br>##<span class="hljs-number">1</span>#<br><span class="hljs-number">000</span>#<br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>不能走进死胡同。如果当前位置某个方向前方一格的三面都被挡住（包括当前位置这一面），一旦不走过去就会封闭一个格子、形成死胡同，所以必须强制往那个方向走。例如当前位置上方一格的三面被挡，下一步必须往上。图示中的 <code>?</code> 表示往那个方向走会和 <code>#</code> 围成一个走不出去的格子，所以必须往上：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span><br>?<span class="hljs-number">0</span>?-----&gt;#<span class="hljs-number">00</span>-----&gt;#<span class="hljs-number">10</span>-----&gt;##<span class="hljs-number">1</span><br><span class="hljs-number">010</span>      <span class="hljs-number">1</span>#<span class="hljs-number">1</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span>      <span class="hljs-number">0</span>#<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>DFS 的参数是当前位置 <code>(sx, sy)</code> 和已走步数 <code>id</code>。按描述串枚举方向：固定字符只走对应的那个方向；<code>?</code> 位置四个方向都试，但优先应用第 3 条剪枝的强制方向，其余情况再四个方向全走。走到 48 步时若停在终点则答案加 1。代码用 <code>mp</code> 记录已访问，并把棋盘四周边框都设为 <code>true</code>，统一处理越界。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-823f3cad" role="button" aria-expanded="false" aria-controls="collapse-823f3cad">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-823f3cad">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>string t;<br><span class="hljs-type">bool</span> mp[<span class="hljs-number">9</span>][<span class="hljs-number">9</span>];<br><span class="hljs-type">int</span> dx[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;;<br><span class="hljs-type">int</span> dy[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>&#125;;<br><span class="hljs-type">char</span> ds[<span class="hljs-number">4</span>] = &#123;<span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;R&#x27;</span>, <span class="hljs-string">&#x27;L&#x27;</span>&#125;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> sx, <span class="hljs-type">int</span> sy, <span class="hljs-type">int</span> id)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (sx &lt; <span class="hljs-number">1</span> || sx &gt; <span class="hljs-number">7</span> || sy &lt; <span class="hljs-number">1</span> || sy &gt; <span class="hljs-number">7</span> || mp[sx][sy])<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span> (sx == <span class="hljs-number">7</span> &amp;&amp; sy == <span class="hljs-number">1</span> &amp;&amp; id &lt; <span class="hljs-number">48</span>)<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span> (mp[sx - <span class="hljs-number">1</span>][sy] &amp;&amp; mp[sx + <span class="hljs-number">1</span>][sy] &amp;&amp; !mp[sx][sy + <span class="hljs-number">1</span>] &amp;&amp; !mp[sx][sy - <span class="hljs-number">1</span>])<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span> (!mp[sx - <span class="hljs-number">1</span>][sy] &amp;&amp; !mp[sx + <span class="hljs-number">1</span>][sy] &amp;&amp; mp[sx][sy + <span class="hljs-number">1</span>] &amp;&amp; mp[sx][sy - <span class="hljs-number">1</span>])<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span> (id == <span class="hljs-number">48</span>) &#123;<br>        ans++;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    mp[sx][sy] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++)<br>        <span class="hljs-keyword">if</span> (t[id] == ds[i])<br>            <span class="hljs-built_in">dfs</span>(sx + dx[i], sy + dy[i], id + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">if</span> (t[id] == <span class="hljs-string">&#x27;?&#x27;</span>) &#123;<br>        <span class="hljs-keyword">if</span> (sx &gt; <span class="hljs-number">2</span> &amp;&amp; mp[sx - <span class="hljs-number">2</span>][sy] &amp;&amp; !mp[sx - <span class="hljs-number">1</span>][sy] &amp;&amp;<br>            (mp[sx - <span class="hljs-number">1</span>][sy - <span class="hljs-number">1</span>] || mp[sx - <span class="hljs-number">1</span>][sy + <span class="hljs-number">1</span>]))<br>            <span class="hljs-built_in">dfs</span>(sx - <span class="hljs-number">1</span>, sy, id + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sx &lt; <span class="hljs-number">6</span> &amp;&amp; mp[sx + <span class="hljs-number">2</span>][sy] &amp;&amp; !mp[sx + <span class="hljs-number">1</span>][sy] &amp;&amp;<br>                 (mp[sx + <span class="hljs-number">1</span>][sy - <span class="hljs-number">1</span>] || mp[sx + <span class="hljs-number">1</span>][sy + <span class="hljs-number">1</span>]))<br>            <span class="hljs-built_in">dfs</span>(sx + <span class="hljs-number">1</span>, sy, id + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sy &gt; <span class="hljs-number">2</span> &amp;&amp; mp[sx][sy - <span class="hljs-number">2</span>] &amp;&amp; !mp[sx][sy - <span class="hljs-number">1</span>] &amp;&amp;<br>                 (mp[sx - <span class="hljs-number">1</span>][sy - <span class="hljs-number">1</span>] || mp[sx + <span class="hljs-number">1</span>][sy - <span class="hljs-number">1</span>]))<br>            <span class="hljs-built_in">dfs</span>(sx, sy - <span class="hljs-number">1</span>, id + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sy &lt; <span class="hljs-number">6</span> &amp;&amp; mp[sx][sy + <span class="hljs-number">2</span>] &amp;&amp; !mp[sx][sy + <span class="hljs-number">1</span>] &amp;&amp;<br>                 (mp[sx - <span class="hljs-number">1</span>][sy + <span class="hljs-number">1</span>] || mp[sx + <span class="hljs-number">1</span>][sy + <span class="hljs-number">1</span>]))<br>            <span class="hljs-built_in">dfs</span>(sx, sy + <span class="hljs-number">1</span>, id + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) <span class="hljs-built_in">dfs</span>(sx + dx[i], sy + dy[i], id + <span class="hljs-number">1</span>);<br>    &#125;<br>    mp[sx][sy] = <span class="hljs-literal">false</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; t;<br>    <span class="hljs-built_in">memset</span>(mp, <span class="hljs-literal">false</span>, <span class="hljs-built_in">sizeof</span>(mp));<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span>; i++)<br>        mp[i][<span class="hljs-number">0</span>] = mp[i][<span class="hljs-number">8</span>] = mp[<span class="hljs-number">0</span>][i] = mp[<span class="hljs-number">8</span>][i] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>    cout &lt;&lt; ans &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CSES/" class="print-no-link">#CSES</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/05/02/004/" title="Sorting and Searching">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Sorting and Searching</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/29/002/" title="CSES 题解目录导航">
+                        <span class="hidden-mobile">CSES 题解目录导航</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <span>2022-2026</span> <i class="iconfont icon-love"></i> <span>w42s2tflx</span> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
+
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>

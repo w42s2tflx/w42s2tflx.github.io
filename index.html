@@ -225,23 +225,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2026/08/08/004/" target="_self">
-          <img src="/img/21.png" srcset="/img/loading.gif" lazyload alt="Graph Algorithms">
+        <a href="/2026/08/13/008/" target="_self">
+          <img src="/img/1.png" srcset="/img/loading.gif" lazyload alt="Tree Algorithms">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2026/08/08/004/" target="_self">
-          Graph Algorithms
+        <a href="/2026/08/13/008/" target="_self">
+          Tree Algorithms
         </a>
       </h2>
 
       
-      <a class="index-excerpt " href="/2026/08/08/004/" target="_self">
+      <a class="index-excerpt " href="/2026/08/13/008/" target="_self">
         <div>
-          题集链接：CSES - CSES Problem Set - Tasks Range Queries
+          Subordinates 题目大意：公司关系构成一棵以 1 号员工为根的树。对每名员工，求其所有直接和间接下属的数量。 解题思路：从根节点开始做后序 DFS。进入节点 u 时先令 sz[u]++，把 u 自身计入；递归处理每个孩子 v 后，再把整棵子树的大小 sz[v] 累加到 sz[u]。因此 DFS 结束后，sz[u] 表示以 u 为根的子树节点数，答案需要输出 sz[u] - 1，减去员工
         </div>
       </a>
 
@@ -249,8 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-08-08 21:00" pubdate>
-              2026-08-08
+            <time datetime="2026-08-13 21:00" pubdate>
+              2026-08-13
             </time>
           </div>
         
@@ -292,23 +292,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2026/08/08/003/" target="_self">
-          <img src="/img/22.png" srcset="/img/loading.gif" lazyload alt="Graph Algorithms">
+        <a href="/2026/05/05/007/" target="_self">
+          <img src="/img/8.png" srcset="/img/loading.gif" lazyload alt="Range Queries">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2026/08/08/003/" target="_self">
-          Graph Algorithms
+        <a href="/2026/05/05/007/" target="_self">
+          Range Queries
         </a>
       </h2>
 
       
-      <a class="index-excerpt " href="/2026/08/08/003/" target="_self">
+      <a class="index-excerpt " href="/2026/05/05/007/" target="_self">
         <div>
-          题集链接：CSES - CSES Problem Set - Tasks Graph Algorithms
+          Static Range Sum Queries 题目大意：给定一个长度为 n 的静态数组，回答 q 次询问。每次给出区间 [l, r]，求其中所有元素之和；询问之间不会修改数组。 解题思路：使用前缀和。代码在读入后执行 a[i] += a[i - 1]，使 a[i] 表示前 i 个元素之和。区间 [l, r] 的元素和等于前 r 个元素之和减去前 l - 1 个元素之和，即 a[r] - a[
         </div>
       </a>
 
@@ -316,8 +316,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-08-08 21:00" pubdate>
-              2026-08-08
+            <time datetime="2026-05-05 21:00" pubdate>
+              2026-05-05
             </time>
           </div>
         
@@ -359,23 +359,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2025/01/01/002/" target="_self">
-          <img src="/img/23.png" srcset="/img/loading.gif" lazyload alt="CSES Problem Set">
+        <a href="/2026/05/04/006/" target="_self">
+          <img src="/img/14.png" srcset="/img/loading.gif" lazyload alt="Graph Algorithms">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2025/01/01/002/" target="_self">
-          CSES Problem Set
+        <a href="/2026/05/04/006/" target="_self">
+          Graph Algorithms
         </a>
       </h2>
 
       
-      <a class="index-excerpt " href="/2025/01/01/002/" target="_self">
+      <a class="index-excerpt " href="/2026/05/04/006/" target="_self">
         <div>
-          题集链接：CSES - CSES Problem Set - Tasks 记录 CSES 全部 400 道题的题解，按官方分类整理，目前以 C++ 为主
+          Counting Rooms 题目大意：给定一张 n×mn \times mn×m 的地图，其中 # 表示墙，. 表示地板。只能在地板格之间上下左右移动，求地图中四方向连通的地板区域数量，也就是房间数。 解题思路：遍历整张地图。每遇到一个仍为 . 的格子，就说明发现了一个尚未统计的新房间，答案加 1，再从该格开始 DFS。DFS 将访问到的地板改成 #，相当于标记已访问，并继续搜索四个相邻方向，
         </div>
       </a>
 
@@ -383,8 +383,276 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-01-01 21:00" pubdate>
-              2025-01-01
+            <time datetime="2026-05-04 21:00" pubdate>
+              2026-05-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSES/">#CSES</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2026/05/03/005/" target="_self">
+          <img src="/img/17.png" srcset="/img/loading.gif" lazyload alt="Dynamic Programming">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2026/05/03/005/" target="_self">
+          Dynamic Programming
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2026/05/03/005/" target="_self">
+        <div>
+          Dynamic Programming Dice Combinations 题目大意：每次掷骰子可以得到 1 到 6 中的一个点数，求点数总和恰好为 n 的序列数量。顺序不同视为不同方案，答案对 109+710^9+7109+7 取模。 解题思路：设 ways[i] 表示点数之和恰好为 i 的方案数，并令 ways[0] = 1。要得到总和 i，可以枚举最后一次掷出的点数 v（1 到 6），此前
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-05-03 21:00" pubdate>
+              2026-05-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSES/">#CSES</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2026/05/02/004/" target="_self">
+          <img src="/img/19.png" srcset="/img/loading.gif" lazyload alt="Sorting and Searching">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2026/05/02/004/" target="_self">
+          Sorting and Searching
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2026/05/02/004/" target="_self">
+        <div>
+          Distinct Numbers 题目大意：给定 n 个整数，统计其中有多少个不同的数值。 解题思路：把读入的每个数插入 set。由于 set 中不会保存重复元素，全部插入后，s.size() 就是不同数值的数量。时间复杂度为 O(nlog⁡n)O(n\log n)O(nlogn)，空间复杂度为 O(n)O(n)O(n)。                      ▶题解(C++)
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-05-02 21:00" pubdate>
+              2026-05-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSES/">#CSES</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2026/05/01/003/" target="_self">
+          <img src="/img/6.png" srcset="/img/loading.gif" lazyload alt="Introductory Problems">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2026/05/01/003/" target="_self">
+          Introductory Problems
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2026/05/01/003/" target="_self">
+        <div>
+          Weird Algorithm 题目大意：给定一个正整数 n，反复执行以下操作：若 n 是偶数，则将它除以 2；若 n 是奇数，则将它乘以 3 再加 1。按顺序输出从初始值到 1 的整个变化过程。 解题思路：直接模拟。每轮先输出当前的 n；如果 n 已经等于 1，就结束循环，否则根据奇偶性更新它。中间结果可能超出 int 的范围，因此用 ll 存储。时间复杂度为 O(迭代次数)O(\text{迭
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-05-01 21:00" pubdate>
+              2026-05-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSES/">#CSES</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2025/12/29/002/" target="_self">
+          <img src="/img/15.png" srcset="/img/loading.gif" lazyload alt="CSES 题解目录导航">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/12/29/002/" target="_self">
+          CSES 题解目录导航
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2025/12/29/002/" target="_self">
+        <div>
+          记录 CSES 题集所有题目的题解，这是目录导航页
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-29 21:00" pubdate>
+              2025-12-29
             </time>
           </div>
         
