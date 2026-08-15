@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://w42s2tflx.github.io/img/15.png">
 <meta property="article:published_time" content="2025-12-29T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-13T14:31:25.175Z">
+<meta property="article:modified_time" content="2026-08-15T11:41:26.862Z">
 <meta property="article:author" content="w42s2tflx">
 <meta property="article:tag" content="CSES">
 <meta name="twitter:card" content="summary_large_image">
@@ -277,24 +277,24 @@
 <span id="more"></span>
 <h2 id="目录">目录</h2>
 <ul>
-<li><a href="">Introductory Problems</a></li>
-<li><a href="">Sorting and Searching</a></li>
-<li><a href="">Dynamic Programming</a></li>
-<li><a href="">Graph Algorithms</a></li>
-<li><a href="">Range Queries</a></li>
-<li><a href="">Tree Algorithms</a></li>
-<li><a href="">Mathematics</a></li>
-<li><a href="">String Algorithms</a></li>
-<li><a href="">Geometry</a></li>
-<li><a href="">Advanced Techniques</a></li>
-<li><a href="">Sliding Window Problems</a></li>
-<li><a href="">Interactive Problems</a></li>
-<li><a href="">Bitwise Operations</a></li>
-<li><a href="">Construction Problems</a></li>
-<li><a href="">Advanced Graph Problems</a></li>
-<li><a href="">Counting Problems</a></li>
-<li><a href="">Additional Problems I</a></li>
-<li><a href="">Additional Problems II</a></li>
+<li><a href="/2026/05/01/003/">Introductory Problems</a></li>
+<li><a href="/2026/05/02/004/">Sorting and Searching</a></li>
+<li><a href="/2026/05/03/005/">Dynamic Programming</a></li>
+<li><a href="/2026/05/04/006/">Graph Algorithms</a></li>
+<li><a href="/2026/05/05/007/">Range Queries</a></li>
+<li><a href="/2026/08/13/008/">Tree Algorithms</a></li>
+<li><a href="/2026/07/24/009/">Mathematics</a></li>
+<li><a href="/2026/07/26/010/">String Algorithms</a></li>
+<li><a href="/2026/07/28/011/">Geometry</a></li>
+<li><a href="/2026/07/30/012/">Advanced Techniques</a></li>
+<li><a href="/2026/08/01/013/">Sliding Window Problems</a></li>
+<li><a href="/2026/08/03/014/">Interactive Problems</a></li>
+<li><a href="/2026/08/05/015/">Bitwise Operations</a></li>
+<li><a href="/2026/08/07/016/">Construction Problems</a></li>
+<li><a href="/2026/08/09/017/">Advanced Graph Problems</a></li>
+<li><a href="/2026/08/11/018/">Counting Problems</a></li>
+<li><a href="/2026/08/13/019/">Additional Problems I</a></li>
+<li><a href="/2026/08/15/020/">Additional Problems II</a></li>
 </ul>
 <h2 id="初始化模板">初始化模板</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/extc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> __gnu_cxx;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> __gnu_pbds;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ll;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">double</span> ld;<br><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> ull;<br><span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; PII;<br><span class="hljs-keyword">typedef</span> tree&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;, null_type, less&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt;, rb_tree_tag,<br>             tree_order_statistics_node_update&gt;<br>    ordered_set;<br><span class="hljs-keyword">typedef</span> gp_hash_table&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; gp;<br><span class="hljs-meta">#<span class="hljs-keyword">define</span> endl <span class="hljs-string">&#x27;\n&#x27;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> low(i) i &amp; -i</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> INF 0x3f3f3f3f</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> INFLL 0x3f3f3f3f3f3f3f3f</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> lep(a, b, c) for (int a = b; a &lt;= c; a++)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> rep(a, b, c) for (int a = b; a &gt;= c; a--)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> debug(a, b) cout &lt;&lt; a &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; b &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <br>&#125;<br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    cin.<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>), cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>), cout.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>    <span class="hljs-type">int</span> T = <span class="hljs-number">1</span>;<br>    <span class="hljs-comment">//cin &gt;&gt; T;</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; T; i++)<br>        <span class="hljs-built_in">solve</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>

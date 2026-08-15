@@ -1,0 +1,782 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/R-C.jpg">
+  <link rel="icon" href="/img/R-C.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="w42s2tflx">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Sliding Window Sum 题目大意：用线性同余生成器 x, a, b, c 生成 n 个数（n≤105n \le 10^5n≤105）：第一个数为 x，之后每个数 &#x3D;(a⋅prev+b) mod c&#x3D; (a \cdot prev + b) \bmod c&#x3D;(a⋅prev+b)modc。对每个长度为 k 的窗口求和，输出所有窗口和的异或。 解题思路：滑动维护窗口和。先累加前 k 个数作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sliding Window Problems">
+<meta property="og:url" content="https://w42s2tflx.github.io/2026/08/01/013/index.html">
+<meta property="og:site_name" content="Solitude">
+<meta property="og:description" content="Sliding Window Sum 题目大意：用线性同余生成器 x, a, b, c 生成 n 个数（n≤105n \le 10^5n≤105）：第一个数为 x，之后每个数 &#x3D;(a⋅prev+b) mod c&#x3D; (a \cdot prev + b) \bmod c&#x3D;(a⋅prev+b)modc。对每个长度为 k 的窗口求和，输出所有窗口和的异或。 解题思路：滑动维护窗口和。先累加前 k 个数作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w42s2tflx.github.io/img/13.png">
+<meta property="article:published_time" content="2026-08-01T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-15T11:41:16.387Z">
+<meta property="article:author" content="w42s2tflx">
+<meta property="article:tag" content="CSES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://w42s2tflx.github.io/img/13.png">
+  
+  
+  
+  <title>Sliding Window Problems - Solitude</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"w42s2tflx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wizard Note</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/13.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Sliding Window Problems"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        w42s2tflx
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-08-01 21:00" pubdate>
+          2026年8月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Sliding Window Problems</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+<h2 id="Sliding-Window-Sum">Sliding Window Sum</h2>
+<p><strong>题目大意</strong>：用线性同余生成器 <code>x, a, b, c</code> 生成 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>）：第一个数为 <code>x</code>，之后每个数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mo stretchy="false">(</mo><mi>a</mi><mo>⋅</mo><mi>p</mi><mi>r</mi><mi>e</mi><mi>v</mi><mo>+</mo><mi>b</mi><mo stretchy="false">)</mo><mtext> </mtext><mo lspace="0.22em" rspace="0.22em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow></mo><mtext> </mtext><mi>c</mi></mrow><annotation encoding="application/x-tex">= (a \cdot prev + b) \bmod c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">re</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span>。对每个长度为 <code>k</code> 的窗口求和，输出所有窗口和的异或。</p>
+<p><strong>解题思路</strong>：滑动维护窗口和。先累加前 <code>k</code> 个数作为第一个窗口的和（答案初始化为它），然后每次右移一格：加上新进来的 <code>arr[i]</code>、减去离开的 <code>arr[i - k]</code>，把新的窗口和异或进答案。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-65ad56e5" role="button" aria-expanded="false" aria-controls="collapse-65ad56e5">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-65ad56e5">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    ll x, a, b, c;<br>    cin &gt;&gt; x &gt;&gt; a &gt;&gt; b &gt;&gt; c;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">arr</span><span class="hljs-params">(n)</span></span>;<br>    arr[<span class="hljs-number">0</span>] = x;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) arr[i] = (a * arr[i - <span class="hljs-number">1</span>] + b) % c;<br>    ll sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; k; i++) sum += arr[i];<br>    ll ans = sum;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = k; i &lt; n; i++) &#123;<br>        sum += arr[i] - arr[i - k];<br>        ans ^= sum;<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Minimum">Sliding Window Minimum</h2>
+<p><strong>题目大意</strong>：同上生成 <code>n</code> 个数，对每个长度为 <code>k</code> 的窗口求最小值，输出所有最小值的异或。</p>
+<p><strong>解题思路</strong>：单调队列维护窗口最小值。队列存下标，保持队内元素值单调递增：加入 <code>i</code> 前把队尾所有 <code>arr[...] &gt;= arr[i]</code> 的下标弹出（它们既大又先过期，永远不会成为最小值），再把过期的队首（下标 <code>&lt;= i - k</code>）弹出，队首即当前窗口最小值。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-28ab9646" role="button" aria-expanded="false" aria-controls="collapse-28ab9646">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-28ab9646">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    ll x, a, b, c;<br>    cin &gt;&gt; x &gt;&gt; a &gt;&gt; b &gt;&gt; c;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">arr</span><span class="hljs-params">(n)</span></span>;<br>    arr[<span class="hljs-number">0</span>] = x;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) arr[i] = (a * arr[i - <span class="hljs-number">1</span>] + b) % c;<br>    deque&lt;<span class="hljs-type">int</span>&gt; dq;<br>    ll ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">while</span> (!dq.<span class="hljs-built_in">empty</span>() &amp;&amp; arr[dq.<span class="hljs-built_in">back</span>()] &gt;= arr[i]) dq.<span class="hljs-built_in">pop_back</span>();<br>        dq.<span class="hljs-built_in">push_back</span>(i);<br>        <span class="hljs-keyword">if</span> (dq.<span class="hljs-built_in">front</span>() &lt;= i - k) dq.<span class="hljs-built_in">pop_front</span>();<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) ans ^= arr[dq.<span class="hljs-built_in">front</span>()];<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Xor">Sliding Window Xor</h2>
+<p><strong>题目大意</strong>：同上生成 <code>n</code> 个数，对每个长度为 <code>k</code> 的窗口求窗口内所有数的异或，再输出所有窗口异或值的异或。</p>
+<p><strong>解题思路</strong>：异或两次等于抵消，所以窗口右移时只需 <code>cur ^= arr[i] ^ arr[i - k]</code>（新元素进一次、旧元素再异或一次移除）。第一个窗口单独初始化。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-e064c6af" role="button" aria-expanded="false" aria-controls="collapse-e064c6af">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-e064c6af">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    ll x, a, b, c;<br>    cin &gt;&gt; x &gt;&gt; a &gt;&gt; b &gt;&gt; c;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">arr</span><span class="hljs-params">(n)</span></span>;<br>    arr[<span class="hljs-number">0</span>] = x;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) arr[i] = (a * arr[i - <span class="hljs-number">1</span>] + b) % c;<br>    ll cur = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; k; i++) cur ^= arr[i];<br>    ll ans = cur;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = k; i &lt; n; i++) &#123;<br>        cur ^= arr[i] ^ arr[i - k];<br>        ans ^= cur;<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Or">Sliding Window Or</h2>
+<p><strong>题目大意</strong>：同上生成 <code>n</code> 个数（值不超过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>30</mn></msup></mrow><annotation encoding="application/x-tex">2^{30}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">30</span></span></span></span></span></span></span></span></span></span></span></span>），对每个长度为 <code>k</code> 的窗口求窗口内所有数按位或，再输出所有窗口或值的异或。</p>
+<p><strong>解题思路</strong>：逐位独立处理。对第 <code>b</code> 位，窗口的 OR 在该位为 0 当且仅当窗口内所有数该位都是 0——也就是&quot;连续 0 段&quot;长度至少为 <code>k</code>。扫描时维护当前 0 段长度 <code>len0</code>（遇到该位为 1 的数就清零），每处统计 <code>len0 &gt;= k</code> 的窗口数 <code>zeroWin</code>；总窗口数减去它得到该位为 1 的窗口数 <code>oneWin</code>，若为奇数就在答案里置上第 <code>b</code> 位（最终是异或，所以只看奇偶）。清零操作 <code>len0 = (len0 + 1) &amp; mask</code> 用掩码技巧写成无分支（该位为 0 时 <code>mask = ~0</code>，为 1 时 <code>mask = 0</code>）。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>30</mn><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(30n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">30</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-5b75660a" role="button" aria-expanded="false" aria-controls="collapse-5b75660a">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-5b75660a">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">typedef</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span> uint;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    ll x, a, b, c;<br>    cin &gt;&gt; x &gt;&gt; a &gt;&gt; b &gt;&gt; c;<br>    <span class="hljs-function">vector&lt;uint&gt; <span class="hljs-title">arr</span><span class="hljs-params">(n)</span></span>;<br>    arr[<span class="hljs-number">0</span>] = (uint)x;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) arr[i] = (uint)((a * (ll)arr[i - <span class="hljs-number">1</span>] + b) % c);<br>    ll ans = <span class="hljs-number">0</span>;<br>    ll total = (ll)n - k + <span class="hljs-number">1</span>;<br>    <span class="hljs-comment">// 位 b：全 0 窗口数。无分支：len0 = (len0+1) &amp; mask；mask = 置位?0:~0</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> b = <span class="hljs-number">0</span>; b &lt; <span class="hljs-number">30</span>; b++) &#123;<br>        ll zeroWin = <span class="hljs-number">0</span>;<br>        uint len0 = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            uint mask = <span class="hljs-number">0u</span> - (((arr[i] &gt;&gt; b) &amp; <span class="hljs-number">1u</span>) ^ <span class="hljs-number">1u</span>); <span class="hljs-comment">// 置位→0，清零→~0</span><br>            len0 = (len0 + <span class="hljs-number">1</span>) &amp; mask;<br>            zeroWin += (len0 &gt;= (uint)k) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>        &#125;<br>        ll oneWin = total - zeroWin;<br>        <span class="hljs-keyword">if</span> (oneWin &amp; <span class="hljs-number">1</span>) ans |= <span class="hljs-number">1LL</span> &lt;&lt; b;<br>    &#125;<br>    cout &lt;&lt; ans &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Distinct-Values">Sliding Window Distinct Values</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），输出每个长度为 <code>k</code> 的窗口中不同值的个数。</p>
+<p><strong>解题思路</strong>：先把值离散化（坐标压缩），用 <code>cnt[idx]</code> 记录窗口内每个值出现的次数。右移时新元素计数 +1（从 0 变 1 时 <code>distinct++</code>），离开元素计数 -1（减到 0 时 <code>distinct--</code>）。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-9d3fcfc2" role="button" aria-expanded="false" aria-controls="collapse-9d3fcfc2">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-9d3fcfc2">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">a</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;v : a) cin &gt;&gt; v;<br>    vector&lt;ll&gt; vals = a;<br>    <span class="hljs-built_in">sort</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>());<br>    vals.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>()), vals.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">idx</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) idx[i] = <span class="hljs-built_in">lower_bound</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>(), a[i]) - vals.<span class="hljs-built_in">begin</span>();<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(vals.size(), <span class="hljs-number">0</span>)</span></span>;<br>    <span class="hljs-type">int</span> distinct = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (++cnt[idx[i]] == <span class="hljs-number">1</span>) distinct++;<br>        <span class="hljs-keyword">if</span> (i &gt;= k) &#123;<br>            <span class="hljs-keyword">if</span> (--cnt[idx[i - k]] == <span class="hljs-number">0</span>) distinct--;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) cout &lt;&lt; distinct &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Mode">Sliding Window Mode</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），输出每个长度为 <code>k</code> 的窗口的众数（出现次数最多的值；并列时取最小的值）。</p>
+<p><strong>解题思路</strong>：值离散化后维护 <code>cnt[idx]</code>（出现次数）和&quot;按频率分桶&quot;的集合 <code>freqSet[f]</code>（当前频率为 <code>f</code> 的所有值）。加入元素：把它从旧频率桶移到新频率桶，更新 <code>maxf</code>；移除元素：降频移桶，若最大频率的桶空了就 <code>maxf--</code>（每次移除最多掉一级）。窗口众数 = <code>freqSet[maxf]</code> 中的最小值，输出 <code>vals[*freqSet[maxf].begin()]</code>。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-5b5bd572" role="button" aria-expanded="false" aria-controls="collapse-5b5bd572">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-5b5bd572">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">a</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;v : a) cin &gt;&gt; v;<br>    <span class="hljs-comment">// 离散化</span><br>    vector&lt;ll&gt; vals = a;<br>    <span class="hljs-built_in">sort</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>());<br>    vals.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>()), vals.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">idx</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) idx[i] = <span class="hljs-built_in">lower_bound</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>(), a[i]) - vals.<span class="hljs-built_in">begin</span>();<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(vals.size(), <span class="hljs-number">0</span>)</span></span>;<br>    vector&lt;set&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">freqSet</span>(n + <span class="hljs-number">1</span>);<br>    <span class="hljs-type">int</span> maxf = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">auto</span> add = [&amp;](<span class="hljs-type">int</span> i) &#123;<br>        <span class="hljs-type">int</span> f = cnt[idx[i]];<br>        <span class="hljs-keyword">if</span> (f &gt; <span class="hljs-number">0</span>) freqSet[f].<span class="hljs-built_in">erase</span>(idx[i]);<br>        cnt[idx[i]] = f + <span class="hljs-number">1</span>;<br>        freqSet[f + <span class="hljs-number">1</span>].<span class="hljs-built_in">insert</span>(idx[i]);<br>        maxf = <span class="hljs-built_in">max</span>(maxf, f + <span class="hljs-number">1</span>);<br>    &#125;;<br>    <span class="hljs-keyword">auto</span> rem = [&amp;](<span class="hljs-type">int</span> i) &#123;<br>        <span class="hljs-type">int</span> f = cnt[idx[i]];<br>        freqSet[f].<span class="hljs-built_in">erase</span>(idx[i]);<br>        cnt[idx[i]] = f - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (f - <span class="hljs-number">1</span> &gt; <span class="hljs-number">0</span>) freqSet[f - <span class="hljs-number">1</span>].<span class="hljs-built_in">insert</span>(idx[i]);<br>        <span class="hljs-keyword">if</span> (freqSet[maxf].<span class="hljs-built_in">empty</span>()) maxf--;<br>    &#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">add</span>(i);<br>        <span class="hljs-keyword">if</span> (i &gt;= k) <span class="hljs-built_in">rem</span>(i - k);<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) cout &lt;&lt; vals[*freqSet[maxf].<span class="hljs-built_in">begin</span>()] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Mex">Sliding Window Mex</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），输出每个长度为 <code>k</code> 的窗口的 mex（窗口内未出现的最小非负整数）。</p>
+<p><strong>解题思路</strong>：窗口大小只有 <code>k</code>，所以 mex 一定不超过 <code>k ≤ n</code>，值大于 <code>n</code> 的数可以忽略。维护 <code>cnt[0..n]</code> 和一个&quot;缺失值集合&quot; <code>missing</code>（初始 0…n+1 全在）：加入值 <code>x ≤ n</code> 时若 <code>cnt[x]</code> 从 0 变 1 就从 <code>missing</code> 删掉，移除时若减到 0 就插回。窗口的 mex 即 <code>*missing.begin()</code>。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-dc73f5fd" role="button" aria-expanded="false" aria-controls="collapse-dc73f5fd">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-dc73f5fd">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">a</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;v : a) cin &gt;&gt; v;<br>    <span class="hljs-comment">// mex ≤ 窗口大小 ≤ n：只需统计值 ≤ n</span><br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(n + <span class="hljs-number">2</span>, <span class="hljs-number">0</span>)</span></span>;<br>    set&lt;<span class="hljs-type">int</span>&gt; missing;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> v = <span class="hljs-number">0</span>; v &lt;= n + <span class="hljs-number">1</span>; v++) missing.<span class="hljs-built_in">insert</span>(v);<br>    <span class="hljs-keyword">auto</span> add = [&amp;](ll x) &#123;<br>        <span class="hljs-keyword">if</span> (x &gt; n) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-keyword">if</span> (cnt[x]++ == <span class="hljs-number">0</span>) missing.<span class="hljs-built_in">erase</span>((<span class="hljs-type">int</span>)x);<br>    &#125;;<br>    <span class="hljs-keyword">auto</span> rem = [&amp;](ll x) &#123;<br>        <span class="hljs-keyword">if</span> (x &gt; n) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-keyword">if</span> (--cnt[x] == <span class="hljs-number">0</span>) missing.<span class="hljs-built_in">insert</span>((<span class="hljs-type">int</span>)x);<br>    &#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">add</span>(a[i]);<br>        <span class="hljs-keyword">if</span> (i &gt;= k) <span class="hljs-built_in">rem</span>(a[i - k]);<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) cout &lt;&lt; *missing.<span class="hljs-built_in">begin</span>() &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Median">Sliding Window Median</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），输出每个长度为 <code>k</code> 的窗口中位数（<code>k</code> 为偶数时取较小者，即第 <code>(k-1)/2</code> 小、0 起始）。</p>
+<p><strong>解题思路</strong>：用 PBDS 的红黑树（支持 <code>find_by_order</code> 查询第 <code>t</code> 小）维护窗口。值可能有重复，所以集合元素用 <code>pair&lt;int, int&gt;</code>（值 + 下标），下标保证唯一。滑动时 <code>insert(&#123;x[i], i&#125;)</code>，离开窗口的元素 <code>erase(&#123;x[i-k], i-k&#125;)</code>，每个窗口输出 <code>find_by_order((k-1)/2)</code> 的值分量。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-d7c7f3a4" role="button" aria-expanded="false" aria-controls="collapse-d7c7f3a4">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-d7c7f3a4">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">using</span> indexed_set =<br>    tree&lt;T, null_type, less&lt;T&gt;, rb_tree_tag, tree_order_statistics_node_update&gt;;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">x</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        cin &gt;&gt; x[i];<br>    &#125;<br><br>    indexed_set&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; s;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        s.<span class="hljs-built_in">insert</span>(&#123;x[i], i&#125;);<br>        <span class="hljs-keyword">if</span> (i &gt;= k) &#123;<br>            s.<span class="hljs-built_in">erase</span>(&#123;x[i - k], i - k&#125;);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-type">int</span> median = s.<span class="hljs-built_in">find_by_order</span>((k - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>)-&gt;first;<br>            cout &lt;&lt; median &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Cost">Sliding Window Cost</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），对每个长度为 <code>k</code> 的窗口，输出把窗口内所有元素变成同一个数所需的最小总代价（每个元素的代价 = 改变量）。</p>
+<p><strong>解题思路</strong>：最优目标值是窗口的<strong>中位数</strong>（向中位数靠拢时两侧的代价相互抵消；任意其他目标都会使一侧的代价增加）。用两个 <code>multiset</code> 维护窗口：<code>left</code> 存较小的一半（大小 = <code>right</code> 或比 <code>right</code> 大 1），<code>right</code> 存较大的一半，同时维护两部分的和。<code>fix</code> 负责平衡两边大小。代价 = <code>left.size() * median - left_sum + right_sum - right.size() * median</code>（左半全部升到中位数、右半全部降到中位数）。<code>add</code>/<code>rem</code> 按值大小分到两半并 <code>fix</code>。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-098520c4" role="button" aria-expanded="false" aria-controls="collapse-098520c4">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-098520c4">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">x</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        cin &gt;&gt; x[i];<br>    &#125;<br><br>    multiset&lt;<span class="hljs-type">int</span>&gt; left, right;<br>    ll left_sum = <span class="hljs-number">0</span>, right_sum = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">auto</span> fix = [&amp;] &#123;<br>        <span class="hljs-keyword">if</span> (left.<span class="hljs-built_in">size</span>() &gt; right.<span class="hljs-built_in">size</span>() + <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">auto</span> v = *left.<span class="hljs-built_in">rbegin</span>();<br>            left_sum -= v;<br>            right_sum += v;<br>            right.<span class="hljs-built_in">insert</span>(v);<br>            left.<span class="hljs-built_in">erase</span>(left.<span class="hljs-built_in">find</span>(v));<br>        &#125;<br>        <span class="hljs-keyword">if</span> (right.<span class="hljs-built_in">size</span>() &gt; left.<span class="hljs-built_in">size</span>()) &#123;<br>            <span class="hljs-keyword">auto</span> v = *right.<span class="hljs-built_in">begin</span>();<br>            right_sum -= v;<br>            left_sum += v;<br>            left.<span class="hljs-built_in">insert</span>(v);<br>            right.<span class="hljs-built_in">erase</span>(right.<span class="hljs-built_in">find</span>(v));<br>        &#125;<br>    &#125;;<br><br>    <span class="hljs-keyword">auto</span> add = [&amp;](<span class="hljs-type">int</span> v) &#123;<br>        <span class="hljs-keyword">if</span> (!left.<span class="hljs-built_in">empty</span>() &amp;&amp; *left.<span class="hljs-built_in">rbegin</span>() &gt; v) &#123;<br>            left.<span class="hljs-built_in">insert</span>(v);<br>            left_sum += v;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right.<span class="hljs-built_in">insert</span>(v);<br>            right_sum += v;<br>        &#125;<br>        <span class="hljs-built_in">fix</span>();<br>    &#125;;<br><br>    <span class="hljs-keyword">auto</span> rem = [&amp;](<span class="hljs-type">int</span> v) &#123;<br>        <span class="hljs-keyword">if</span> (*left.<span class="hljs-built_in">rbegin</span>() &gt;= v) &#123;<br>            left.<span class="hljs-built_in">erase</span>(left.<span class="hljs-built_in">find</span>(v));<br>            left_sum -= v;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            right.<span class="hljs-built_in">erase</span>(right.<span class="hljs-built_in">find</span>(v));<br>            right_sum -= v;<br>        &#125;<br>        <span class="hljs-built_in">fix</span>();<br>    &#125;;<br><br>    <span class="hljs-keyword">auto</span> cost = [&amp;] &#123;<br>        ll median = *left.<span class="hljs-built_in">rbegin</span>();<br>        ll left_cost = left.<span class="hljs-built_in">size</span>() * median - left_sum;<br>        ll right_cost = right_sum - right.<span class="hljs-built_in">size</span>() * median;<br>        <span class="hljs-keyword">return</span> left_cost + right_cost;<br>    &#125;;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-built_in">add</span>(x[i]);<br>        <span class="hljs-keyword">if</span> (i &gt;= k) &#123;<br>            <span class="hljs-built_in">rem</span>(x[i - k]);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) &#123;<br>            cout &lt;&lt; <span class="hljs-built_in">cost</span>() &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Inversions">Sliding Window Inversions</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个数（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），输出每个长度为 <code>k</code> 的窗口内逆序对的数量。</p>
+<p><strong>解题思路</strong>：坐标压缩 + 树状数组。右端新加入元素 <code>a[i]</code> 时，窗口内比它大的元素数 = 当前窗口大小 - 不大于它的个数（<code>w - qry(g)</code>，<code>w = min(i, k)</code> 是加入后窗口内的元素数），加上这些就是新增逆序对；左端移除 <code>a[i - k]</code> 时，它与窗口内其他元素形成的逆序对要减去：作为较大者的逆序对数 = 窗口内比它小的个数 = <code>qry(gr - 1)</code>。移除和加入的先后顺序保证不重不漏。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-a8163d0f" role="button" aria-expanded="false" aria-controls="collapse-a8163d0f">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-a8163d0f">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">a</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;v : a) cin &gt;&gt; v;<br>    vector&lt;ll&gt; vals = a;<br>    <span class="hljs-built_in">sort</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>());<br>    vals.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>()), vals.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">bit</span><span class="hljs-params">(vals.size() + <span class="hljs-number">2</span>, <span class="hljs-number">0</span>)</span></span>;<br>    <span class="hljs-keyword">auto</span> upd = [&amp;](<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> d) &#123; <span class="hljs-keyword">for</span> (; i &lt;= (<span class="hljs-type">int</span>)vals.<span class="hljs-built_in">size</span>(); i += i &amp; -i) bit[i] += d; &#125;;<br>    <span class="hljs-keyword">auto</span> qry = [&amp;](<span class="hljs-type">int</span> i) &#123; <span class="hljs-type">int</span> s = <span class="hljs-number">0</span>; <span class="hljs-keyword">for</span> (; i &gt; <span class="hljs-number">0</span>; i -= i &amp; -i) s += bit[i]; <span class="hljs-keyword">return</span> s; &#125;;<br>    <span class="hljs-keyword">auto</span> gi = [&amp;](ll v) &#123; <span class="hljs-keyword">return</span> <span class="hljs-built_in">lower_bound</span>(vals.<span class="hljs-built_in">begin</span>(), vals.<span class="hljs-built_in">end</span>(), v) - vals.<span class="hljs-built_in">begin</span>() + <span class="hljs-number">1</span>; &#125;;<br>    ll inv = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-type">int</span> g = <span class="hljs-built_in">gi</span>(a[i]);<br>        <span class="hljs-type">int</span> w = <span class="hljs-built_in">min</span>(i, k);<br>        inv += w - <span class="hljs-built_in">qry</span>(g); <span class="hljs-comment">// 窗口内大于 a[i] 的个数</span><br>        <span class="hljs-built_in">upd</span>(g, <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">if</span> (i &gt;= k) &#123;<br>            <span class="hljs-type">int</span> gr = <span class="hljs-built_in">gi</span>(a[i - k]);<br>            inv -= <span class="hljs-built_in">qry</span>(gr - <span class="hljs-number">1</span>);<br>            <span class="hljs-built_in">upd</span>(gr, <span class="hljs-number">-1</span>);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (i &gt;= k - <span class="hljs-number">1</span>) cout &lt;&lt; inv &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="Sliding-Window-Advertisement">Sliding Window Advertisement</h2>
+<p><strong>题目大意</strong>：给 <code>n</code> 个柱子的高度（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n \le 2 \times 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>），对每个长度为 <code>k</code> 的窗口，输出窗口内柱状图中最大矩形的面积。</p>
+<p><strong>解题思路</strong>：最大矩形一定以某个柱子 <code>i</code> 的高度为矩形的高，其宽度是&quot;以 <code>i</code> 为最小值的最大连续段&quot;与窗口的交。先用单调栈求 <code>L[i]</code>（左边第一个更矮）和 <code>R[i]</code>（右边第一个严格更矮，处理等高并列：左闭右开区间 <code>[L[i]+1, R[i]-1]</code> 内 <code>h[i]</code> 是最小值）。窗口起点 <code>l</code> 包含 <code>i</code> 的范围是 <code>[max(0, i-k+1), min(i, n-k)]</code>；窗口与最小段的交宽 <code>w = min(R[i], l+k) - max(L[i]+1, l)</code> 是 <code>l</code> 的分段线性函数，按 <code>l</code> 与 <code>L[i]</code>、<code>R[i]-k</code> 的大小关系分成 4 段（斜率 +1、0、0、-1），把每段直线 <code>h[i] * w</code> 用 Li Chao 树的区间插入加到对应 <code>l</code> 范围上。最后对每个 <code>l</code> 点查询所有直线的最大值。复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n \log^2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1484em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984em;"><span style="top:-3.1473em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-9a1c5b83" role="button" aria-expanded="false" aria-controls="collapse-9a1c5b83">
+        <div class="fold-arrow">▶</div>题解(C++)
+      </div>
+      <div class="fold-collapse collapse" id="collapse-9a1c5b83">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">const</span> ll NEG = <span class="hljs-number">-4e18</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Line</span> &#123; ll a, b; <span class="hljs-built_in">Line</span>(ll a = <span class="hljs-number">0</span>, ll b = NEG) : <span class="hljs-built_in">a</span>(a), <span class="hljs-built_in">b</span>(b) &#123;&#125; &#125;;<br><span class="hljs-function">ll <span class="hljs-title">f</span><span class="hljs-params">(Line L, ll x)</span> </span>&#123; <span class="hljs-keyword">return</span> L.a * x + L.b; &#125;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">200005</span>;<br>Line tr[<span class="hljs-number">4</span> * MAXN];<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> node, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, Line nw)</span> </span>&#123;<br>    <span class="hljs-type">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>    Line lo = tr[node], hi = nw;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">f</span>(lo, mid) &lt; <span class="hljs-built_in">f</span>(hi, mid)) <span class="hljs-built_in">swap</span>(lo, hi);<br>    tr[node] = lo;<br>    <span class="hljs-keyword">if</span> (l == r) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">f</span>(lo, l) &lt; <span class="hljs-built_in">f</span>(hi, l)) <span class="hljs-built_in">add</span>(node &lt;&lt; <span class="hljs-number">1</span>, l, mid, hi);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">f</span>(lo, r) &lt; <span class="hljs-built_in">f</span>(hi, r)) <span class="hljs-built_in">add</span>(node &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, mid + <span class="hljs-number">1</span>, r, hi);<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addRange</span><span class="hljs-params">(<span class="hljs-type">int</span> node, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> ql, <span class="hljs-type">int</span> qr, Line nw)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (qr &lt; l || r &lt; ql || ql &gt; qr) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">if</span> (ql &lt;= l &amp;&amp; r &lt;= qr) &#123; <span class="hljs-built_in">add</span>(node, l, r, nw); <span class="hljs-keyword">return</span>; &#125;<br>    <span class="hljs-type">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">addRange</span>(node &lt;&lt; <span class="hljs-number">1</span>, l, mid, ql, qr, nw);<br>    <span class="hljs-built_in">addRange</span>(node &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, mid + <span class="hljs-number">1</span>, r, ql, qr, nw);<br>&#125;<br><span class="hljs-function">ll <span class="hljs-title">qry</span><span class="hljs-params">(<span class="hljs-type">int</span> node, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x)</span> </span>&#123;<br>    ll res = <span class="hljs-built_in">f</span>(tr[node], x);<br>    <span class="hljs-keyword">if</span> (l == r) <span class="hljs-keyword">return</span> res;<br>    <span class="hljs-type">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (x &lt;= mid) <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(res, <span class="hljs-built_in">qry</span>(node &lt;&lt; <span class="hljs-number">1</span>, l, mid, x));<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(res, <span class="hljs-built_in">qry</span>(node &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, mid + <span class="hljs-number">1</span>, r, x));<br>&#125;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">solve</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, k;<br>    cin &gt;&gt; n &gt;&gt; k;<br>    <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">h</span><span class="hljs-params">(n)</span></span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;v : h) cin &gt;&gt; v;<br>    <span class="hljs-comment">// 单调栈：L[i] = 左边第一个更矮、R[i] = 右边第一个更矮</span><br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">L</span><span class="hljs-params">(n, <span class="hljs-number">-1</span>)</span>, <span class="hljs-title">R</span><span class="hljs-params">(n, n)</span></span>;<br>    vector&lt;<span class="hljs-type">int</span>&gt; st;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">while</span> (!st.<span class="hljs-built_in">empty</span>() &amp;&amp; h[st.<span class="hljs-built_in">back</span>()] &gt;= h[i]) st.<span class="hljs-built_in">pop_back</span>();<br>        L[i] = st.<span class="hljs-built_in">empty</span>() ? <span class="hljs-number">-1</span> : st.<span class="hljs-built_in">back</span>();<br>        st.<span class="hljs-built_in">push_back</span>(i);<br>    &#125;<br>    st.<span class="hljs-built_in">clear</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>        <span class="hljs-keyword">while</span> (!st.<span class="hljs-built_in">empty</span>() &amp;&amp; h[st.<span class="hljs-built_in">back</span>()] &gt; h[i]) st.<span class="hljs-built_in">pop_back</span>();<br>        R[i] = st.<span class="hljs-built_in">empty</span>() ? n : st.<span class="hljs-built_in">back</span>();<br>        st.<span class="hljs-built_in">push_back</span>(i);<br>    &#125;<br>    <span class="hljs-type">int</span> X = n - k; <span class="hljs-comment">// l 的范围 [0, X]</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span> * MAXN; i++) tr[i] = <span class="hljs-built_in">Line</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-comment">// 有效 l 区间：[lo, hi] = [max(0, i-k+1), min(i, X)]</span><br>        <span class="hljs-type">int</span> lo = <span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, i - k + <span class="hljs-number">1</span>), hi = <span class="hljs-built_in">min</span>(i, X);<br>        <span class="hljs-keyword">if</span> (lo &gt; hi) <span class="hljs-keyword">continue</span>;<br>        ll H = h[i];<br>        <span class="hljs-comment">// w = min(R, l+k) - max(L+1, l)</span><br>        <span class="hljs-comment">// 段 A：l &lt;= L[i] 且 l &lt;= R[i]-k：w = l + k - L[i] - 1（斜率 1）</span><br>        <span class="hljs-type">int</span> e1 = <span class="hljs-built_in">min</span>(hi, <span class="hljs-built_in">min</span>(L[i], R[i] - k));<br>        <span class="hljs-keyword">if</span> (lo &lt;= e1) <span class="hljs-built_in">addRange</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, X, lo, e1, <span class="hljs-built_in">Line</span>(H, H * (k - L[i] - <span class="hljs-number">1</span>)));<br>        <span class="hljs-comment">// 段 B：l &lt;= L[i] 且 l &gt; R[i]-k：w = R[i] - L[i] - 1（常数）</span><br>        <span class="hljs-type">int</span> s3 = <span class="hljs-built_in">max</span>(lo, R[i] - k + <span class="hljs-number">1</span>), e3 = <span class="hljs-built_in">min</span>(hi, L[i]);<br>        <span class="hljs-keyword">if</span> (s3 &lt;= e3) <span class="hljs-built_in">addRange</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, X, s3, e3, <span class="hljs-built_in">Line</span>(<span class="hljs-number">0</span>, H * (R[i] - L[i] - <span class="hljs-number">1</span>)));<br>        <span class="hljs-comment">// 段 C：l &gt; L[i] 且 l &lt;= R[i]-k：w = k（常数）</span><br>        <span class="hljs-type">int</span> s2 = <span class="hljs-built_in">max</span>(lo, L[i] + <span class="hljs-number">1</span>), e2 = <span class="hljs-built_in">min</span>(hi, R[i] - k);<br>        <span class="hljs-keyword">if</span> (s2 &lt;= e2) <span class="hljs-built_in">addRange</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, X, s2, e2, <span class="hljs-built_in">Line</span>(<span class="hljs-number">0</span>, H * k));<br>        <span class="hljs-comment">// 段 D：l &gt; L[i] 且 l &gt; R[i]-k：w = R[i] - l（斜率 -1）</span><br>        <span class="hljs-type">int</span> s4 = <span class="hljs-built_in">max</span>(lo, <span class="hljs-built_in">max</span>(L[i], R[i] - k) + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">if</span> (s4 &lt;= hi) <span class="hljs-built_in">addRange</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, X, s4, hi, <span class="hljs-built_in">Line</span>(-H, H * R[i]));<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>; l &lt;= X; l++) cout &lt;&lt; <span class="hljs-built_in">qry</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, X, l) &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    cout &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CSES/" class="print-no-link">#CSES</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/08/03/014/" title="Interactive Problems">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Interactive Problems</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/07/30/012/" title="Advanced Techniques">
+                        <span class="hidden-mobile">Advanced Techniques</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <span>2022-2026</span> <i class="iconfont icon-love"></i> <span>w42s2tflx</span> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
+
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
