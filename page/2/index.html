@@ -241,7 +241,7 @@
       
       <a class="index-excerpt " href="/2026/07/28/011/" target="_self">
         <div>
-          Point Location Test 题目大意：t 组测试，每组给出两个点确定一条直线和第三个点，判断从 p1 看向 p2 时 p3 在直线左侧、右侧还是直线上。坐标绝对值可达 10910^9109。 解题思路：叉积。cross = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)：大于 0 说明 p3 在左侧（p1→p2 方向逆时针转到 p1→p3）
+          Point Location Test 题目大意：t 组测试（t≤105t \le 10^5t≤105），每组给出两个点确定一条直线和第三个点，判断从 p1 看向 p2 时 p3 在直线左侧、右侧还是直线上。坐标绝对值可达 10910^9109。 解题思路：叉积。cross = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)：大于 0 说明 p3 在左
         </div>
       </a>
 
@@ -249,7 +249,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-07-28 21:00" pubdate>
+            <time datetime="2026-07-28 12:00" pubdate>
               2026-07-28
             </time>
           </div>
@@ -316,7 +316,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-07-26 21:00" pubdate>
+            <time datetime="2026-07-26 12:00" pubdate>
               2026-07-26
             </time>
           </div>
@@ -375,7 +375,7 @@
       
       <a class="index-excerpt " href="/2026/07/24/009/" target="_self">
         <div>
-          Josephus Queries 题目大意：q 次询问（q≤105q \le 10^5q≤105），每次给 nnn 个孩子围成一圈（n,k≤109n, k \le 10^9n,k≤109）。从第 1 个孩子开始数，每轮移除当前圈中的第 2 个孩子，问第 k 个被移除的孩子是谁。 解题思路：递归把规模减半。当 k &lt;= (n + 1) / 2 时，第 k 个被移除者就在第一轮里：这一轮被移除
+          Josephus Queries 题目大意：q 次询问（q≤105q \le 10^5q≤105），每次给 nnn 个孩子围成一圈（n,k≤109n, k \le 10^9n,k≤109）。从第 1 个孩子开始数，每隔一个孩子就被从圈子里带走，问第 k 个被移除的孩子是谁。 解题思路：递归把规模减半。当 k &lt;= (n + 1) / 2 时，第 k 个被移除者就在第一轮里：这一轮被移除的是
         </div>
       </a>
 
@@ -383,7 +383,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-07-24 21:00" pubdate>
+            <time datetime="2026-07-24 12:00" pubdate>
               2026-07-24
             </time>
           </div>
@@ -442,7 +442,7 @@
       
       <a class="index-excerpt " href="/2026/05/05/007/" target="_self">
         <div>
-          Static Range Sum Queries 题目大意：给定一个长度为 n 的静态数组，回答 q 次询问。每次给出区间 [l, r]，求其中所有元素之和；询问之间不会修改数组。 解题思路：使用前缀和。代码在读入后执行 a[i] += a[i - 1]，使 a[i] 表示前 i 个元素之和。区间 [l, r] 的元素和等于前 r 个元素之和减去前 l - 1 个元素之和，即 a[r] - a[
+          Static Range Sum Queries 题目大意：给定一个长度为 n 的静态数组（n,q≤2×105n, q \le 2 \times 10^5n,q≤2×105），回答 q 次询问。每次给出区间 [l, r]，求其中所有元素之和；询问之间不会修改数组。 解题思路：使用前缀和。代码在读入后执行 a[i] += a[i - 1]，使 a[i] 表示前 i 个元素之和。区间 [l, r]
         </div>
       </a>
 
@@ -450,7 +450,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-05-05 21:00" pubdate>
+            <time datetime="2026-05-05 12:00" pubdate>
               2026-05-05
             </time>
           </div>
@@ -509,7 +509,7 @@
       
       <a class="index-excerpt " href="/2026/05/04/006/" target="_self">
         <div>
-          Counting Rooms 题目大意：给定一张 n×mn \times mn×m 的地图，其中 # 表示墙，. 表示地板。只能在地板格之间上下左右移动，求地图中四方向连通的地板区域数量，也就是房间数。 解题思路：遍历整张地图。每遇到一个仍为 . 的格子，就说明发现了一个尚未统计的新房间，答案加 1，再从该格开始 DFS。DFS 将访问到的地板改成 #，相当于标记已访问，并继续搜索四个相邻方向，
+          Counting Rooms 题目大意：给定一张 n×mn \times mn×m 的地图（n,m≤1000n, m \le 1000n,m≤1000），其中 # 表示墙，. 表示地板。只能在地板格之间上下左右移动，求地图中四方向连通的地板区域数量，也就是房间数。 解题思路：遍历整张地图。每遇到一个仍为 . 的格子，就说明发现了一个尚未统计的新房间，答案加 1，再从该格开始 DFS。DFS 将访
         </div>
       </a>
 
@@ -517,7 +517,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-05-04 21:00" pubdate>
+            <time datetime="2026-05-04 12:00" pubdate>
               2026-05-04
             </time>
           </div>
@@ -576,7 +576,7 @@
       
       <a class="index-excerpt " href="/2026/05/03/005/" target="_self">
         <div>
-          Dice Combinations 题目大意：每次掷骰子可以得到 1 到 6 中的一个点数，求点数总和恰好为 n 的序列数量。顺序不同视为不同方案，答案对 109+710^9+7109+7 取模。 解题思路：设 ways[i] 表示点数之和恰好为 i 的方案数，并令 ways[0] = 1。要得到总和 i，可以枚举最后一次掷出的点数 v（1 到 6），此前的点数总和应为 i - v，于是： wa
+          Dice Combinations 题目大意：每次掷骰子可以得到 1 到 6 中的一个点数，求点数总和恰好为 n 的序列数量（n≤106n \le 10^6n≤106）。顺序不同视为不同方案，答案对 109+710^9+7109+7 取模。 解题思路：设 ways[i] 表示点数之和恰好为 i 的方案数，并令 ways[0] = 1。要得到总和 i，可以枚举最后一次掷出的点数 v（1 到 6），
         </div>
       </a>
 
@@ -584,7 +584,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-05-03 21:00" pubdate>
+            <time datetime="2026-05-03 12:00" pubdate>
               2026-05-03
             </time>
           </div>
@@ -643,7 +643,7 @@
       
       <a class="index-excerpt " href="/2026/05/02/004/" target="_self">
         <div>
-          Distinct Numbers 题目大意：给定 n 个整数，统计其中有多少个不同的数值。 解题思路：把读入的每个数插入 set。由于 set 中不会保存重复元素，全部插入后，s.size() 就是不同数值的数量。时间复杂度为 O(nlog⁡n)O(n\log n)O(nlogn)，空间复杂度为 O(n)O(n)O(n)。                      ▶题解(C++)
+          Distinct Numbers 题目大意：给定 n 个整数（n≤2×105n \le 2 \times 10^5n≤2×105），统计其中有多少个不同的数值。 解题思路：把读入的每个数插入 set。由于 set 中不会保存重复元素，全部插入后，s.size() 就是不同数值的数量。时间复杂度为 O(nlog⁡n)O(n\log n)O(nlogn)，空间复杂度为 O(n)O(n)O(n)。
         </div>
       </a>
 
@@ -651,7 +651,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-05-02 21:00" pubdate>
+            <time datetime="2026-05-02 12:00" pubdate>
               2026-05-02
             </time>
           </div>
@@ -710,7 +710,7 @@
       
       <a class="index-excerpt " href="/2026/05/01/003/" target="_self">
         <div>
-          Weird Algorithm 题目大意：给定一个正整数 n，反复执行以下操作：若 n 是偶数，则将它除以 2；若 n 是奇数，则将它乘以 3 再加 1。按顺序输出从初始值到 1 的整个变化过程。 解题思路：直接模拟。每轮先输出当前的 n；如果 n 已经等于 1，就结束循环，否则根据奇偶性更新它。中间结果可能超出 int 的范围，因此用 ll 存储。时间复杂度为 O(迭代次数)O(\text{迭
+          Weird Algorithm 题目大意：给定一个正整数 n（n≤106n \le 10^6n≤106），反复执行以下操作：若 n 是偶数，则将它除以 2；若 n 是奇数，则将它乘以 3 再加 1。按顺序输出从初始值到 1 的整个变化过程。 解题思路：直接模拟。每轮先输出当前的 n；如果 n 已经等于 1，就结束循环，否则根据奇偶性更新它。中间结果可能超出 int 的范围，因此用 ll 存储。时
         </div>
       </a>
 
@@ -718,7 +718,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-05-01 21:00" pubdate>
+            <time datetime="2026-05-01 12:00" pubdate>
               2026-05-01
             </time>
           </div>
