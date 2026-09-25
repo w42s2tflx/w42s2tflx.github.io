@@ -1,0 +1,10 @@
+/* 自定义样式（通过主题 custom_css 引入，不改主题源码） */
+#navbar.navbar:not(.top-nav-collapse):not(.navbar-col-show) {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+/* 列表卡片改为 16:9：与单套封面同比例，同一张图在列表和头图都不被裁切 */
+.index-img img {
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+}
